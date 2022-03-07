@@ -1,0 +1,13 @@
+.serif {
+    font-family: 'Zilla Slab', serif;
+    font-size: 13pt;
+}
+
+[x-cloak] {
+    display: none;
+}
+
+.grid-indigo {
+    background-image: radial-gradient(#5a67d8 2px, transparent 2px);
+    background-size: 16px 16px;
+}
