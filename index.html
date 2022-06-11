@@ -92,10 +92,10 @@
         <!--Hero-->
         <section id="hero"
             class="h-auto bg-gray-100 py-6 flex flex-col justify-center sm:py-12 bg-gradient-to-r from-green-400 to-indigo-400 min-h-screen">
-            <div class="absolute top-0 -m-20 rounded-full h-96 w-96 flex bg-white bg-opacity-10 z-0"></div>
-            <div class="absolute right-0 m-20 rounded-full h-96 w-96 flex bg-white bg-opacity-10 z-0"></div>
+            <div class="absolute top-52 -m-20 rounded-full h-96 w-96 flex bg-white bg-opacity-10 z-auto"></div>
+            <div class="absolute right-0 m-20 rounded-full h-96 w-96 flex bg-white bg-opacity-10 z-auto"></div>
             <div
-                class="relative container bg-white shadow-lg h-auto w-11/12 rounded-3xl bg-clip-padding bg-opacity-60 border border-gray-200 backdrop-filter backdrop-blur-lg">
+                class=" mx-auto container bg-white shadow-lg h-auto w-11/12 rounded-3xl bg-clip-padding bg-opacity-60 border border-gray-200 backdrop-filter backdrop-blur-lg">
                 <div>
                     <div class="container mx-auto flex px-10 py-20 md:flex-row flex-col items-center ">
                         <div
@@ -162,6 +162,10 @@
                 </div>
                 <div
                     class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+                    <div
+                        class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center  flex-shrink-0">
+                        <img alt="cybersecurity" src="res/cybersecurity.svg">
+                    </div>
                     <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
                         <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Cyber Security and Risk Management
                         </h2>
@@ -173,10 +177,7 @@
                             simple solutions to support it.<br> Keywords:
                             NIST, CIS, CSA, ISO 2700x, DevSecOps, MITRE, EBIOS, Shift-left, ASF, Audit, Pentest</p>
                     </div>
-                    <div
-                        class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center  flex-shrink-0">
-                        <img alt="cybersecurity" src="res/cybersecurity.svg">
-                    </div>
+
                 </div>
                 <div class="flex items-center lg:w-3/5 mx-auto sm:flex-row flex-col">
                     <div
@@ -293,8 +294,7 @@
                                 <p class="leading-relaxed text-base">MIRA offers a straightforward solution to
                                     centralize, assess and monitor your IT risks. What makes it special is the fact that
                                     it is designed around the analyst user journey and based on field experience.</p>
-                                <a href="mira.html"
-                                    class="mt-3 text-indigo-500 inline-flex items-center">Learn more
+                                <a href="mira.html" class="mt-3 text-indigo-500 inline-flex items-center">Learn more
                                     <svg fill="none" stroke="currentColor" stroke-linecap="round"
                                         stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2"
                                         viewbox="0 0 24 24">
@@ -894,19 +894,26 @@
         </section>
 
     </div>
-    
-    <div class="container text-gray-600 body-font py-4">
-        <div class="text-2xl font-medium title-font mb-4 text-gray-900" id="contact">Contact</div>
-        <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/v2.js"></script>
-        <script>
-            hbspt.forms.create({
-                region: "eu1",
-                portalId: "25949168",
-                formId: "2bb5a83b-29a0-4cdf-8192-6405fdc7d750"
-            });
-        </script>
 
-    </div>
+    <section class="text-gray-600 body-font " id="contact">
+        <div class="container p-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Let's chat and discuss how we can help each other</p>
+            </div>
+            <div>
+                <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/v2.js"></script>
+                <script>
+                    hbspt.forms.create({
+                        region: "eu1",
+                        portalId: "25949168",
+                        formId: "2bb5a83b-29a0-4cdf-8192-6405fdc7d750"
+                    });
+                </script>
+            </div>
+
+        </div>
+    </section>
 
 
     <footer class="text-gray-600 body-font ">
