@@ -1,0 +1,55 @@
+---
+import Container from "@components/container.astro";
+import Layout from "@layouts/Layout.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import ConsultancyItem from "@components/consultancyItem.astro";
+
+const consultancy = [
+  {
+    title: "Cloud architecture",
+    desc: "Define patterns and best practices for cloud architecture: resiliency, security, manageability, and cost optimization.",
+  },
+  {
+    title: "Cyber security program",
+    desc: "Define and manage cyber security program: tools, policies, procedures, and controls.",
+  },
+  {
+    title: "Audit and pentest",
+    desc: "Perform security audits and penetration tests, depending on your needs to identify vulnerabilities and risks.",
+  },
+  {
+    title: "R&D acceleration",
+    desc: "Software development and DevOps: we can help you to accelerate your R&D projects, from ideation and product management to production.",
+  },
+  {
+    title: "Agile transformation",
+    desc: "Agile coaching, training and implementation: we can help you to transform your organization to an agile one, or take it to the next level.",
+  },
+  {
+    title: "Implementing SRE",
+    desc: "Take your production management to the next level. We help you demystify the hype and implement the right practices for your case.",
+  },
+  {
+    title: "Data Engineering",
+    desc: "Help you design and implement data pipelines and associated data platform, from ingestion to data visualization.",
+  },
+  {
+    title: "DevSecOps",
+    desc: "Help you implement DevSecOps practices: define and implement security controls in your CI/CD pipelines, team awareness and secure your cloud infrastructure.",
+  }
+];
+---
+
+<Layout title="Consultancy">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Consultancy</Fragment>
+      <Fragment slot="desc">How can we help you 🤝</Fragment>
+    </Sectionhead>
+  </Container>
+  <Container>
+    <div class="grid md:grid-cols-2 gap-4 p-2">
+      {consultancy.map((item) => <ConsultancyItem item={item} />)}
+    </div>
+  </Container>
+</Layout>

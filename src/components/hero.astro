@@ -1,0 +1,52 @@
+---
+import { Picture } from "@astrojs/image/components";
+import heroImage from "@assets/hero_new.png";
+import Link from "@components/ui/link.astro";
+import { Icon } from "astro-icon";
+---
+
+<main
+  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+  <div class="py-6 md:order-1 hidden md:block z-0">
+    <Picture
+      src={heroImage}
+      alt="Collaborate to build"
+      widths={[250,500,1000]}
+      loading="eager"
+      sizes="100%"
+      format="avif"
+    />
+  </div>
+  <div>
+    <h1
+      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+      Simple, trustworthy, and sustainable.
+    </h1>
+    <p class="text-lg mt-4 text-slate-600 max-w-xl">
+      Intuitem specializes in cloud architecture, cyber security and software development. We <span class="font-semibold">build products and provide consulting services</span> to simplify the overwhelming complexity of the modern digital world.
+    </p>
+    <p class="text-lg mt-4 text-slate-600 max-w-xl">
+      We have just released the new version of <span class="font-semibold">MIRA</span>, our streamlined and all-in-one cyber risk management solution. Get your free trial now!
+    </p>
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <Link
+        href="/mira"
+        target="_blank"
+        class="flex gap-1 items-center justify-center"
+        rel="noopener">
+        <Icon class="text-white w-5 h-5" name="ic:baseline-fiber-new" />
+
+        More about MIRA
+      </Link>
+      <Link
+        size="lg"
+        style="outline"
+        rel="noopener"
+        href="consultancy"
+        class="flex gap-1 items-center justify-center">
+        <Icon class="text-black w-4 h-4" name="ic:outline-handshake" />
+        Consultancy services
+      </Link>
+    </div>
+  </div>
+</main>
