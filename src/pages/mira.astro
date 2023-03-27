@@ -5,6 +5,7 @@ import Sectionhead from "@components/sectionhead.astro";
 import { Picture } from "@astrojs/image/components";
 import MiraLogo from "assets/mira_logo.png";
 import Puzzle from "assets/puzzle.png";
+import Gallery from "@components/Gallery.astro";
 ---
 
 <Layout title="Mira">
@@ -16,8 +17,8 @@ import Puzzle from "assets/puzzle.png";
     <main class="my-8">
       <!-- Vision -->
       <div class="px-8 py-4 text-left mb-4 rounded border-2">
-        <div class="text-xl font-semibold text-indigo-600">Vision</div>
-        <div class="text-sm mb-4">
+        <div class="text-3xl font-semibold text-indigo-600 font-serif">Vision</div>
+        <div class="text-md mb-4">
           Why are we even bothering to create another risk management software?
         </div>
         <div class="md:flex">
@@ -31,7 +32,7 @@ import Puzzle from "assets/puzzle.png";
               sizes=" 25%"
             />
           </div>
-          <div class="text-align md:w-5/6">
+          <div class="text-align md:w-5/6 space-y-4 text-lg">
             <p>
               As cybersecurity practitioners, we have firsthand experience with
               the challenges of performing risk analysis for our clients. We
@@ -61,14 +62,14 @@ import Puzzle from "assets/puzzle.png";
 
       <!-- Principles -->
       <div class="px-8 py-4 text-left mb-4">
-        <div class="text-xl font-semibold text-indigo-600 text-right">
+        <div class="text-2xl font-semibold text-indigo-600 text-right font-serif">
           Principles
         </div>
-        <div class="text-sm mb-4 text-right">
+        <div class="text-md mb-4 text-right">
           The building principles that make MIRA unique
         </div>
         <div class="md:flex">
-          <div class="md:w-1/2">
+          <div class="md:w-1/2 space-y-4 text-lg">
             <p>
               <span class="font-semibold text-emerald-500"
                 >Approach-agnostic:</span
@@ -137,12 +138,12 @@ import Puzzle from "assets/puzzle.png";
 
       <!-- Featues -->
       <div class="px-8 py-4 mb-4 border-2 rounded">
-        <div class="text-xl font-semibold text-indigo-600">Features</div>
-        <div class="mb-4 text-sm">
+        <div class="text-2xl font-semibold text-indigo-600 font-serif">Features</div>
+        <div class="mb-4 text-md">
           Core features that can be supercharged to fit your needs
         </div>
         <p>
-          <ul class="list-disc p-4 grid grid-cols-2 gap-4">
+          <ul class="list-disc p-4 grid grid-cols-2 gap-4 text-lg">
             <li>Folder-based access control</li>
             <li>Catalog feature to reuse security functions</li>
             <li>Analyst personal dashboard</li>
@@ -164,9 +165,9 @@ import Puzzle from "assets/puzzle.png";
 
       <!-- Get started -->
       <div class="px-8 py-4 mb-4">
-        <div class="text-xl font-semibold text-indigo-600">Get started</div>
-        <div class="text-sm mb-4">Help me choose the most suitable offer</div>
-        <p>
+        <div class="text-2xl font-semibold text-indigo-600 font-serif">Get started</div>
+        <div class="text-md mb-4">Help me choose the most suitable offer</div>
+        <p class="text-lg">
           We provide different options to fit your needs:
           <ul class="list-disc p-4">
             <li>
@@ -203,8 +204,9 @@ import Puzzle from "assets/puzzle.png";
       </div>
     </main>
     <cta>
-      <div class="text-center text-xl font-semibold text-indigo-500">
-        <a href="/trial">🚀 Let's go</a>
+      <div class="grid grid-cols-2 gap-4 text-center text-3xl font-semibold rounded py-4">
+        <div><a href="/trial" class="text-white bg-indigo-600 hover:bg-indigo-400 w-1/2 p-4 rounded shadow">🚀 Let's go</a></div>
+        <div><a href="/gallery" class="text-white bg-pink-600 hover:bg-pink-400 w-1/2 p-4 rounded shadow">🚀 Gallery</a></div>
       </div>
     </cta>
   </Container>

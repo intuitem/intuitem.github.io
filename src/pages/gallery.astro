@@ -1,0 +1,20 @@
+---
+import Container from "@components/container.astro";
+import Layout from "@layouts/Layout.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import { Picture } from "@astrojs/image/components";
+import MiraLogo from "assets/mira_logo.png";
+import Gallery from "@components/Gallery.astro";
+---
+
+<Layout title="Mira">
+    <Container>
+      <Sectionhead>
+        <Fragment slot="title">Mira</Fragment>
+        <Fragment slot="desc">Sneak peek: gallery</Fragment>
+      </Sectionhead>
+      <main class="my-8">
+        <Gallery />
+      </main>
+    </Container>
+</Layout>
