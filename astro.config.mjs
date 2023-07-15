@@ -7,7 +7,9 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://intuitem.com",
   integrations: [
-    tailwind(),
+    tailwind(
+      {applyBaseStyles: true,}
+    ),
     image({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),

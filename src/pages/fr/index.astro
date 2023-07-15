@@ -1,0 +1,63 @@
+---
+import Container from "@components/container.astro";
+import Cta from "@components/cta.astro";
+import Features from "@components/features.astro";
+import Footer from "@components/footer.astro";
+import Hero from "@components/hero.astro";
+import Logos from "@components/logos.astro";
+import Layout from "@layouts/Layout.astro";
+import "../../styles/base.css";
+---
+
+<Layout title="intuitem: cloud, cyber security and everything in between">
+  <Container>
+    <Hero />
+    <section class="p-10 relative">
+      <div
+        class="absolute w-40 h-48 rounded-full bg-rose-400 blob filter blur-2xl mix-blend-multiply opacity-50 left-40 top-20"
+      >
+      </div>
+      <div class="font-highlight text-center text-rose-900 text-2xl mb-2 z-0">
+        Solutions clés en main pour gérer et optimiser votre
+        programme de cybersécurité
+      </div>
+      <p class="p-10 z-0">
+        Face à un paysage de menaces en constante évolution, la protection de
+        vos actifs numériques est d'une importance capitale. Nous proposons des
+        solutions complètes ou sur mesure qui rationalisent vos opérations de
+        cybersécurité, renforcent vos défenses et favorisent l'amélioration
+        continue. De l'évaluation des risques à la mise en œuvre de stratégies
+        de défense avancées, nos services sont conçus pour renforcer votre
+        posture de cybersécurité, garantissant ainsi la résilience et la
+        continuité de vos activités.
+      </p>
+    </section>
+
+    <section class="p-10 relative">
+      <div
+        class="absolute w-40 h-48 rounded-full bg-blue-300 blob filter blur-2xl mix-blend-multiply opacity-50 right-40 top-10 delay-4"
+      >
+      </div>
+      <div class="font-highlight text-center text-2xl text-blue-900 mb-2 z-0">
+        Professionnels dédiés pour vous
+        accompagner, conseiller, construire et coacher vos équipes
+      </div>
+      <p class="p-10 z-0">
+        Nos experts, forts de leur expérience et de leur savoir-faire, sont à
+        votre disposition pour vous guider à travers les complexités du paysage
+        technologique actuel. Ils prodiguent des conseils avisés, vous aident à
+        élaborer des stratégies efficaces et à construire des systèmes robustes.
+        De plus, nous ne nous contentons pas de créer des solutions : nous nous
+        engageons à renforcer les capacités de vos équipes par le biais de
+        coaching, afin de garantir une autonomie durable et une performance
+        optimale. Avec nous à vos côtés, transformez vos défis en opportunités
+        de croissance.
+      </p>
+    </section>
+
+    <Cta />
+    
+    <Logos />
+    
+  </Container>
+</Layout>

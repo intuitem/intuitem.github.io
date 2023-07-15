@@ -4,21 +4,26 @@ import Layout from "@layouts/Layout.astro";
 import Sectionhead from "@components/sectionhead.astro";
 import { Picture } from "@astrojs/image/components";
 import MiraLogo from "assets/mira_logo.png";
-import Puzzle from "assets/puzzle.png";
+import Puzzle from "assets/mira_support.png";
 
+import "../../../styles/base.css"
 ---
 
 <Layout title="Mira">
-  <Container>
+  <Container class=" overflow-x-clip">
     <Sectionhead>
       <Fragment slot="title">Mira</Fragment>
-      <Fragment slot="desc">All-in-One Risk Management Platform</Fragment>
+      <Fragment slot="desc">The all-in-one risk management platform</Fragment>
     </Sectionhead>
     <main class="my-8">
       <!-- Vision -->
-      <div class="px-8 py-4 text-left mb-4 rounded border-2">
-        <div class="text-3xl font-semibold text-indigo-600 font-serif">Vision</div>
-        <div class="text-md mb-4">
+      <section class="p-10 text-left m-20 relative">
+
+        <div class=" absolute w-40 h-40 rounded-full bg-cyan-500 opacity-70 mix-blend-multiply filter blur-2xl left-40 top-20 blob">
+        </div>
+
+        <div class="text-3xl text-indigo-900 font-title text-center">🧭 Vision</div>
+        <div class=" mb-8 font-highlight text-center text-slate-700">
           Why are we even bothering to create another risk management software?
         </div>
         <div class="md:flex">
@@ -32,7 +37,7 @@ import Puzzle from "assets/puzzle.png";
               sizes=" 25%"
             />
           </div>
-          <div class="text-align md:w-5/6 space-y-4 text-lg">
+          <div class="text-align md:w-5/6 space-y-4">
             <p>
               As cybersecurity practitioners, we have firsthand experience with
               the challenges of performing risk analysis for our clients. We
@@ -58,18 +63,22 @@ import Puzzle from "assets/puzzle.png";
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       <!-- Principles -->
-      <div class="px-8 py-4 text-left mb-4">
-        <div class="text-2xl font-semibold text-indigo-600 text-right font-serif">
-          Principles
+      <section class="p-10 text-left m-20 relative">
+
+        <div class=" absolute w-64 h-64 rounded-full bg-amber-200 opacity-70 mix-blend-multiply filter blur-2xl -right-40 -top-10 blob delay-3">
         </div>
-        <div class="text-md mb-4 text-right">
+
+        <div class="text-3xl text-indigo-900 font-title text-center">
+          ⚙️ Principles
+        </div>
+        <div class=" mb-8 font-highlight text-center text-slate-700">
           The building principles that make MIRA unique
         </div>
         <div class="md:flex">
-          <div class="md:w-1/2 space-y-4 text-lg">
+          <div class="md:w-1/2 space-y-4">
             <p>
               <span class="font-semibold text-emerald-500"
                 >Approach-agnostic:</span
@@ -134,16 +143,20 @@ import Puzzle from "assets/puzzle.png";
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <!-- Featues -->
-      <div class="px-8 py-4 mb-4 border-2 rounded">
-        <div class="text-2xl font-semibold text-indigo-600 font-serif">Features</div>
-        <div class="mb-4 text-md">
+      <section class="p-10 text-left m-20 relative">
+
+        <div class=" absolute w-64 h-64 rounded-full bg-emerald-400 opacity-50 mix-blend-multiply filter blur-3xl -left-40 top-20 blob delay-6">
+        </div>
+
+        <div class="text-3xl text-indigo-900 font-title text-center">☑️ Features</div>
+        <div class=" mb-8 font-highlight text-center text-slate-700">
           Core features that can be supercharged to fit your needs
         </div>
         <p>
-          <ul class="list-disc p-4 grid grid-cols-2 gap-4 text-lg">
+          <ul class="list-disc p-4 grid grid-cols-2 gap-4">
             <li>Folder-based access control</li>
             <li>Catalog feature to reuse security functions</li>
             <li>Analyst personal dashboard</li>
@@ -161,13 +174,17 @@ import Puzzle from "assets/puzzle.png";
           </ul>
           (*coming soon)
         </p>
-      </div>
+      </section>
 
       <!-- Get started -->
-      <div class="px-8 py-4 mb-4">
-        <div class="text-2xl font-semibold text-indigo-600 font-serif">Get started</div>
-        <div class="text-md mb-4">Help me choose the most suitable offer</div>
-        <p class="text-lg">
+      <section class="px-10 text-left m-20 relative">
+
+        <div class=" absolute w-40 h-40 rounded-full bg-violet-500 opacity-70 mix-blend-multiply filter blur-3xl right-40 top-20 blob delay-6">
+        </div>  
+
+        <div class="text-3xl text-indigo-900 font-title text-center">🚀 Get started</div>
+        <div class=" mb-8 font-highlight text-center text-slate-700">Help me choose the most suitable offer</div>
+        <p class="">
           We provide different options to fit your needs:
           <ul class="list-disc p-4">
             <li>
@@ -201,13 +218,14 @@ import Puzzle from "assets/puzzle.png";
             </li>
           </ul>
         </p>
-      </div>
+      </section>
     </main>
-    <cta>
-      <div class="grid md:grid-cols-2 grid-cols-1 gap-10 text-center text-3xl font-semibold rounded py-4">
-        <div><a href="/trial" class="text-white bg-indigo-600 hover:bg-indigo-400 w-1/2 p-4 rounded shadow">🚀 Let's go</a></div>
-        <div><a href="/mira_gallery" class="text-white bg-pink-600 hover:bg-pink-400 w-1/2 p-4 rounded shadow">🚀 Gallery</a></div>
+    <section class="">
+      <div class="flex gap-2 text-center text-2xl font-highlight items-center justify-center">
+        <div class=""><a href="/trial" class="text-white bg-emerald-400 hover:bg-indigo-400 p-5 rounded shadow">Trial request</a></div>
+        <div class=""><a href="/pricing" class="text-white bg-cyan-600 hover:bg-indigo-400 p-5 rounded shadow">Pricing details</a></div>
+        <div class=""><a href="/mira_gallery" class="text-white bg-orange-300 hover:bg-pink-400 p-5 rounded shadow">Screenshots</a></div>
       </div>
-    </cta>
+    </section>
   </Container>
 </Layout>

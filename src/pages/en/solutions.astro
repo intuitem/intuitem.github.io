@@ -1,0 +1,419 @@
+---
+import Container from "@components/container.astro";
+import Layout from "@layouts/Layout.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import { Picture } from "@astrojs/image/components";
+import MiraLogo from "assets/mira_logo.png";
+import CALogo from "@assets/ciso-assistant_logo.png";
+import ConsultancyLogo from "@assets/consultancy.png";
+import cyberSec from "@assets/cyber-security.png";
+import audit from "@assets/audit.png";
+import AILogo from "@assets/ai.png";
+import crisis from "@assets/crisis.png";
+---
+
+<Layout>
+  <Container class="px-10 overflow-x-clip">
+    <!-- Header -->
+    <div class="text-center my-10">
+      <div class="text-5xl font-highlight text-fuchsia-800">
+        <a id="products">Products</a>
+      </div>
+      <div class="text-sm text-slate-600">
+        We combine our expertise in cybersecurity, cloud, and artificial
+        intelligence to offer simple and innovative products
+      </div>
+    </div>
+
+    <section>
+      <div class="p-10 my-10 relative">
+        <div
+          class="w-64 h-64 bg-pink-200 rounded-full absolute top-0 left-0 filter blur-3xl opacity-700 mix-blend-multiply"
+        >
+        </div>
+        <div
+          class="w-64 h-64 bg-indigo-200 rounded-full absolute top-20 left-40 filter blur-3xl opacity-700 mix-blend-multiply"
+        >
+        </div>
+      </div>
+      <div class="flex">
+        <div class="w-1/3 flex items-center justify-center">
+          <div class="w-1/2">
+            <Picture
+              src={MiraLogo}
+              alt="Mira Logo"
+              widths={[500]}
+              loading="eager"
+              format="avif"
+              sizes=" 100%"
+            />
+          </div>
+        </div>
+        <div class="w-2/3 flex justify-center flex-col">
+          <div class="text-2xl">🚀</div>
+          <div class="text-5xl mb-4 tracking-tighter font-title">Mira</div>
+          
+          <p class=" mb-2">
+            Whether you're starting your risk management program or looking to
+            improve the existing one, Mira is the solution you need to capture
+            and manage your risks, treatment plans, and associated controls.
+          </p>
+
+          <p>
+            Click below to learn more about how Mira can help you streamline your risk management approach and actually build a risk-driven cyber security program.
+          </p>
+          <a
+            href="solutions/mira"
+            class="rounded p-2 bg-indigo-800 w-40 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0"
+            >Learn more</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="p-10 my-10 relative">
+        <div
+          class="w-64 h-64 bg-teal-300 rounded-full absolute -top-10 -right-20 filter blur-3xl opacity-70 mix-blend-multiply"
+        >
+        </div>
+        <div
+          class="w-64 h-64 bg-pink-400 rounded-full absolute top-20 -right-20 filter blur-3xl opacity-40 mix-blend-multiply"
+        >
+        </div>
+      </div>
+      <div class="flex">
+        <div class="w-2/3 flex justify-center flex-col">
+          <div class="text-2xl">💫</div>
+          <div class="text-5xl mb-4 tracking-tighter font-title">
+            CISO Assistant
+          </div>
+          <p class="mb-2">
+            CISO assistant answers the growing pain of any CISO or cybersecurity
+            practitioner: where to start with so much data and threats and how
+            to reconcile security and compliance.
+          </p>
+          <p>
+            The primary challenge is finding an efficient way to handle this
+            deluge of information without compromosing the sensitivity or
+            privacy of your data. The CISO Assistant streamlines this process by
+            organizing, interpreting, and prioritizing the data by leveraging
+            our offline and local AI engine. Through its innovative
+            capabilities, it allows for the swift identification of potential
+            threats, enabling a quick response to mitigate risk.
+          </p>
+          <a
+            href="ciso-assistant"
+            class="rounded p-2 bg-indigo-800 w-40 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0"
+            >Join the waitlist</a
+          >
+        </div>
+        <div class="w-1/3 flex items-center justify-center">
+          <div class="w-1/2">
+            <Picture
+              src={CALogo}
+              alt="CISO Assistant Logo"
+              widths={[500]}
+              loading="eager"
+              format="avif"
+              sizes=" 25%"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-------------------------------------------------------- -->
+    <!-- Header -->
+    <div class="text-center mb-10 mt-20">
+      <div class="text-5xl font-highlight text-fuchsia-800">
+        <a id="services">Services</a>
+      </div>
+      <div class="text-sm text-slate-600">
+        Our seasoned experts for your peace of mind and the empowerment of your
+        teams
+      </div>
+    </div>
+
+    <section class="overflow-visible">
+      <div class="p-10 my-10 relative">
+        <div
+          class="w-64 h-64 bg-emerald-300 rounded-full absolute top-0 -left-20 filter blur-3xl opacity-70 mix-blend-multiply"
+        >
+        </div>
+        <div
+          class="w-64 h-64 bg-violet-300 rounded-full absolute top-20 left-20 filter blur-3xl opacity-70 mix-blend-multiply"
+        >
+        </div>
+      </div>
+      <div class="flex">
+        <div class="w-1/2 flex justify-center flex-col">
+          <div class="text-2xl">🚀</div>
+          <div class="text-5xl mb-4 tracking-tighter font-title z-0">
+            GRC & Risk Management acceleration
+          </div>
+          <p class="mb-2">
+            Boost your organization's Governance, Risk, and Compliance (GRC) and
+            Risk Management capabilities with our top-tier consultancy services.
+            We specialize in accelerating these critical processes, implementing
+            strategies that elevate efficiency, amplify transparency, and
+            enhance control.
+          </p>
+          <p>
+            Our team of experts works closely with your organization, helping to
+            meticulously identify your risk profile and formulate robust
+            compliance protocols that harmonize with your unique business goals
+            and regulatory requirements.
+          </p>
+          <a
+            href="mira"
+            class="rounded p-2 bg-indigo-800 w-40 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0"
+            >Learn more</a
+          >
+        </div>
+        <div class="w-1/2 flex items-center justify-center">
+          <div class="w-1/3">
+            <Picture
+              src={cyberSec}
+              alt="Mira Logo"
+              widths={[500]}
+              loading="eager"
+              format="avif"
+              sizes=" 100%"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="">
+      <div class="p-10 my-10 relative">
+        <div
+          class="w-64 h-64 bg-rose-500 rounded-full absolute top-0 -right-20 filter blur-3xl opacity-50 mix-blend-multiply"
+        >
+        </div>
+        <div
+          class="w-64 h-64 bg-sky-500 rounded-full absolute top-20 right-20 filter blur-3xl opacity-50 mix-blend-multiply"
+        >
+        </div>
+      </div>
+      <div class="flex">
+        <div class="w-1/2 flex items-center justify-center">
+          <div class="w-1/3">
+            <Picture
+              src={crisis}
+              alt="cybersec"
+              widths={[500]}
+              loading="eager"
+              format="avif"
+              sizes=" 100%"
+            />
+          </div>
+        </div>
+        <div class="w-1/2 flex justify-center flex-col">
+          <div class="text-2xl">💫</div>
+          <div class="text-5xl mb-4 tracking-tighter font-title z-0">
+            Crisis Management task force
+          </div>
+          <p class="mb-2">
+            Take control of unforeseen challenges with our specialized Crisis
+            Management Task Force. In an era where uncertainties are the only
+            certainty, our dedicated team of experts stands ready to guide your
+            organization through any storm. We provide a rapid, efficient, and
+            proactive response, enabling your organization to mitigate risks,
+            protect its reputation, and ensure business continuity.
+          </p>
+          <p>
+            Our Task Force isn't just reactive; we're also decidedly proactive.
+            We help you prepare for potential crises, building robust
+            contingency plans and delivering training to your teams. With our
+            blend of cutting-edge technology and strategic foresight, we equip
+            you with the resilience to weather any crisis. Navigate confidently
+            through tumultuous times – lean on our Crisis Management Task Force.
+          </p>
+          <a
+            href="#"
+            class="rounded p-2 bg-indigo-800 w-40 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0"
+            >Call-me back</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="p-10 my-10 relative">
+        <div
+          class="w-60 h-60 bg-emerald-300 rounded-full absolute top-0 -left-20 filter blur-3xl opacity-70 mix-blend-multiply"
+        >
+        </div>
+        <div
+          class="w-60 h-60 bg-yellow-300 rounded-full absolute top-20 left-20 filter blur-3xl opacity-70 mix-blend-multiply"
+        >
+        </div>
+      </div>
+      <div class="flex">
+        <div class="w-1/2 flex justify-center flex-col">
+          <div class="text-2xl">🚀</div>
+          <div class="text-5xl mb-4 tracking-tighter font-title z-0">
+            Cyber Security Audit & Pentest
+          </div>
+          <p class="mb-2">
+            Secure your digital frontier with our comprehensive Cyber Security
+            Audit & Pentesting services. In an age where cyber threats evolve at
+            an unprecedented pace, our team of seasoned experts stands as your
+            formidable defense line. We delve deep into your systems,
+            identifying vulnerabilities, and testing resilience, offering a
+            thorough analysis that empowers you to bolster your cybersecurity.
+          </p>
+          <p>
+            But our services go beyond merely identifying weaknesses. Our
+            Pentest professionals simulate real-world attacks, putting your
+            systems through rigorous, ethical hacking to assess their true
+            robustness. Post-audit, we provide detailed reports and practical
+            recommendations, enabling you to fortify your digital defenses
+            effectively. Take no chances in the cyber arena - partner with us
+            for your Cyber Security Audit & Pentesting needs.
+          </p>
+          <a
+            href="mira"
+            class="rounded p-2 bg-indigo-800 w-40 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0"
+            >Learn more</a
+          >
+        </div>
+        <div class="w-1/2 flex items-center justify-center">
+          <div class="w-1/3">
+            <Picture
+              src={audit}
+              alt="Mira Logo"
+              widths={[500]}
+              loading="eager"
+              format="avif"
+              sizes=" 100%"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="p-10 my-10 relative">
+        <div
+          class="w-64 h-64 bg-blue-900 rounded-full absolute top-0 -right-20 filter blur-3xl opacity-60 mix-blend-multiply"
+        >
+        </div>
+        <div
+          class="w-64 h-64 bg-cyan-400 rounded-full absolute top-20 right-20 filter blur-3xl opacity-60 mix-blend-multiply"
+        >
+        </div>
+      </div>
+      <div class="flex">
+        <div class="w-1/2 flex items-center justify-center">
+          <div class="w-1/3">
+            <Picture
+              src={AILogo}
+              alt="AI/ML"
+              widths={[500]}
+              loading="eager"
+              format="avif"
+              sizes=" 100%"
+            />
+          </div>
+        </div>
+        <div class="w-1/2 flex justify-center flex-col">
+          <div class="text-2xl">💫</div>
+          <div class="text-5xl mb-4 tracking-tighter font-title z-0">
+            AI/ML data automation and integration
+          </div>
+          <p class="mb-2">
+            Unlock the potential of your business with our cutting-edge AI/ML
+            Data Automation and Integration services. As we navigate an era
+            where data becomes the lifeblood of decision-making, our dedicated
+            team of AI and ML experts steps in to help you automate processes
+            and integrate intelligent systems into your business landscape. We
+            don't stop at streamlining your repetitive tasks - our aim is to
+            inject intelligence into your data operations, enabling real-time
+            insights and predictive analytics that drive strategic
+            decision-making.
+          </p>
+          <p>
+            Step into the future of data with our offline generative AI
+            solutions. This advanced technology allows you to generate new data
+            even when disconnected from the internet, ensuring uninterrupted
+            operations and continuous insights. Our tailored solutions
+            seamlessly meld with your existing infrastructure, eradicating data
+            silos and fostering enhanced cross-functional collaboration. With
+            our AI/ML Data Automation and Integration services, prepare to
+            revolutionize your processes, gain strategic insights, and outpace
+            the competition.
+          </p>
+          <a
+            href="#"
+            class="rounded p-2 bg-indigo-800 w-40 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0"
+            >Join the waitlist</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="p-10 my-10 relative">
+        <div
+          class="w-64 h-64 bg-blue-400 rounded-full absolute top-0 -left-20 filter blur-3xl opacity-60 mix-blend-multiply"
+        >
+        </div>
+        <div
+          class="w-64 h-64 bg-purple-600 rounded-full absolute top-40 -left-10 filter blur-3xl opacity-60 mix-blend-multiply"
+        >
+        </div>
+      </div>
+      <div class="flex">
+        <div class="w-1/2 flex justify-center flex-col">
+          <div class="text-2xl">🚀</div>
+          <div class="text-5xl mb-4 tracking-tighter font-title z-0">
+            Other consultancy services
+          </div>
+          <p class="mb-2">
+            Elevate your business operations with our comprehensive suite of
+            consultancy services. From the intricacies of cloud design to the
+            complexities of system architecture, our team of experts stands
+            ready to guide you. We work closely with your team to develop and
+            implement cloud strategies that align with your business objectives,
+            offering cost-effective solutions and scalability. Alongside this,
+            our skilled architects design robust systems tailored to your
+            specific needs, ensuring scalability, reliability, and optimum
+            performance.
+          </p>
+          <p>
+            Navigating the challenges of large-scale operations and supporting
+            Site Reliability Engineering (SRE) teams are also integral parts of
+            our service offering. We provide strategic assistance to manage
+            high-volume, complex operations, optimizing productivity and
+            mitigating risks. Additionally, we act as an extension to your SRE
+            teams, bringing in-depth knowledge and experience to foster
+            continuous improvement, a blame-free culture, and resilient system
+            development. With our diverse consultancy services, we equip your
+            business with the necessary tools and expertise to excel in the
+            competitive business landscape.
+          </p>
+          <a
+            href="mira"
+            class="rounded p-2 bg-indigo-800 w-40 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0"
+            >Learn more</a
+          >
+        </div>
+        <div class="w-1/2 flex items-center justify-center">
+          <div class="w-1/3">
+            <Picture
+              src={ConsultancyLogo}
+              alt="Consultancy"
+              widths={[500]}
+              loading="eager"
+              format="avif"
+              sizes=" 25%"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </Container>
+</Layout>

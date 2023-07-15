@@ -3,52 +3,71 @@ import Container from "@components/container.astro";
 import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import LanguagePicker from "@components/LanguagePicker.astro";
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const menuitems = [
   {
-    title: "Mira",
-    path: "/mira",
+    title: "Solutions",
+    children: [
+      {
+        title: t('nav.overview'),
+        path: `/${lang}/solutions/`,
+      },
+      {
+        title: "Mira",
+        path: `/${lang}/solutions/mira/`,
+      },
+      {
+        title: "CISO Assistant",
+        path: `/${lang}/solutions#products`,
+      },
+      {
+        title: "Audit and Pentest",
+        path: `/${lang}/solutions#services`,
+      },
+      {
+        title: "AI/ML and Data",
+        path: `/${lang}/solutions#services`,
+      },
+      {
+        title: "Consultancy",
+        path: `/${lang}/solutions#services`,
+      },
+    ], 
   },
   {
-    title: "Pricing",
-    path: "/pricing",
+    title: t('nav.community'),
+    path: `/${lang}/community/`,
   },
   {
     title: "Contact",
-    path: "/contact",
+    path: `/contact/`,
   },
   {
     title: "Blog",
     path: "/blog",
   },
-  {
-    title: "More",
-    children: [
-      {
-        title: "Team",
-        path: "/team",
-      },
-      {
-        title: "Consultancy",
-        path: "/consultancy",
-      },
-      {
-        title: "Agile Security Framework",
-        path: "/agile-security-framework",
-      },
-      
-    ],
-  },
 ];
 ---
 
-<Container>
-  <header class="flex flex-col lg:flex-row justify-between items-center my-5">
+<Container class="">
+  <header class="flex flex-col lg:flex-row justify-between items-center my-5 mx-5">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
-        <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-800">intuitem</span>
+        <div class="flex">
+          <span class="mr-2">
+            <img src="https://25949168.fs1.hubspotusercontent-eu1.net/hubfs/25949168/logo_empty.png" width="32px" height="32px">
+          </span>
+          <a href="/" class="text-lg"
+          >
+          <span class="font-bold text-slate-800">intuitem</span>
         </a>
+        </div>
+        
         <div class="block lg:hidden">
           <MenuIcon class="w-4 h-4 text-gray-800" />
         </div>
@@ -79,15 +98,14 @@ const menuitems = [
             ))
           }
         </ul>
-        <div class="lg:hidden flex items-center mt-3 gap-4">
-          <Link href="/trial" size="md">Get started</Link>
+        <div class="flex my-2 hidden">
+          <LanguagePicker />
         </div>
       </MenuItems>
     </Astronav>
     <div>
-      <div class="hidden lg:flex items-center gap-4">
-        
-        <Link href="/trial" size="md">Get started</Link>
+      <div class="flex my-2">
+        <LanguagePicker />
       </div>
     </div>
   </header>

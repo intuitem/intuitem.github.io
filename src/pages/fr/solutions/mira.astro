@@ -1,0 +1,277 @@
+---
+import Container from "@components/container.astro";
+import Layout from "@layouts/Layout.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import { Picture } from "@astrojs/image/components";
+import MiraLogo from "assets/mira_logo.png";
+import Puzzle from "assets/mira_support.png";
+
+import "../../../styles/base.css";
+---
+
+<Layout title="Mira">
+  <Container class="overflow-x-clip">
+    <Sectionhead>
+      <Fragment slot="title">Mira</Fragment>
+      <Fragment slot="desc">
+        La plateforme de gestion des risques de bout-en-bout
+      </Fragment>
+    </Sectionhead>
+    <main class="my-8">
+      <!-- Vision -->
+      <section class="p-10 text-left m-20 relative">
+        <div
+          class="absolute w-40 h-40 rounded-full bg-cyan-500 opacity-70 mix-blend-multiply filter blur-2xl left-40 top-20 blob"
+        >
+        </div>
+
+        <div class="text-3xl text-indigo-900 font-title text-center">
+          🧭 Vision
+        </div>
+        <div class="mb-8 font-highlight text-center text-slate-700">
+          Pourquoi s'embêter à créer un autre logiciel de gestion des risques ?
+        </div>
+        <div class="md:flex">
+          <div class="md:w-1/6">
+            <Picture
+              src={MiraLogo}
+              alt="Mira Logo"
+              widths={[500]}
+              loading="eager"
+              format="avif"
+              sizes=" 25%"
+            />
+          </div>
+          <div class="text-align md:w-5/6 space-y-4">
+            <p>
+              En tant que praticiens de la cybersécurité, nous avons une
+              expérience directe des défis posés par l'analyse des risques pour
+              nos clients. Nous avons vu à quel point il peut être difficile de
+              s'adapter à des processus existants, complexes, qui finissent par
+              être une perte de temps et de ressources, mais aussi de repartir à
+              zéro à chaque fois pour dupliquer la même complexité.
+            </p>
+            <p>
+              Mira est né de ces expériences. Nous avons reconnu le besoin d'une
+              plateforme de gestion des risques qui pourrait simplifier le
+              processus et fournir des informations exploitables. Ce qui a
+              commencé comme un petit projet pour nos besoins internes est
+              rapidement devenu une solution complète que nous savions pouvoir
+              bénéficier à de nombreuses organisations confrontées à des défis
+              similaires.
+            </p>
+            <p>
+              Nous avons identifié une lacune sur le marché pour un outil
+              intuitif, complet et rentable qui pourrait aider les organisations
+              à gérer efficacement leurs risques de cybersécurité. Nous croyons
+              en des méthodologies axées sur le risque et sommes convaincus que
+              Mira peut faire une différence significative dans la manière dont
+              les entreprises abordent la gestion des risques et améliorent leur
+              posture de sécurité globale.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Principles -->
+      <section class="p-10 text-left m-20 relative">
+        <div
+          class="absolute w-64 h-64 rounded-full bg-amber-200 opacity-70 mix-blend-multiply filter blur-2xl -right-40 -top-10 blob delay-3"
+        >
+        </div>
+
+        <div class="text-3xl text-indigo-900 font-title text-center">
+          ⚙️ Principes
+        </div>
+        <div class="mb-8 font-highlight text-center text-slate-700">
+          Nos principes fondamentaux qui rendent Mira unique
+        </div>
+        <div class="md:flex">
+          <div class="md:w-1/2 space-y-4">
+            <p>
+              <span class="font-semibold text-emerald-500"
+                >Indépendance de l'approche :</span
+              >
+              quelle que soit la méthodologie d'analyse des risques, nous produisons
+              tous le même contenu avec la même intention, et MIRA vous aide à vous
+              concentrer sur cela. Il sert également de garantie pour se concentrer
+              sur ce qui est important et éviter de se perdre dans les spécificités
+              d'une approche.
+            </p>
+            <p>
+              <span class="font-semibold text-emerald-500">Intuitif :</span> nous
+              croyons que la meilleure façon de rendre un outil intuitif est de le
+              rendre simple. Nous avons conçu Mira pour être aussi simple que possible
+              à travers plusieurs itérations et interactions avec des praticiens
+              de la cybersécurité.
+            </p>
+            <p>
+              <span class="font-semibold text-emerald-500">Complet :</span>
+              nous avons conçu Mira pour être une solution tout-en-un pour tous vos
+              besoins en gestion des risques. La meilleure façon d'y parvenir est
+              de fournir une plateforme qui peut être utilisée par toutes les parties
+              prenantes impliquées dans le processus de gestion des risques et de
+              réduire autant que possible le changement de contexte.
+            </p>
+            <p>
+              <span class="font-semibold text-emerald-500">Rentable :</span> nous
+              pensons que la cybersécurité doit être accessible à tous. Nous avons
+              conçu Mira pour être économique pour les fonctionnalités de base. Les
+              utilisateurs avancés peuvent également utiliser nos options de personnalisation
+              pour adapter la solution à leurs besoins spécifiques.
+            </p>
+            <p>
+              <span class="font-semibold text-emerald-500"
+                >Au-delà du "tableur" :</span
+              > nous voulions que MIRA soit plus qu'un simple outil de saisie. Il
+              dispose de fonctionnalités pour revoir votre analyse en termes de cohérence,
+              vous rappeler les échéances des atténuations, construire des analyses
+              pour le reporting, et bien d'autres capacités.
+            </p>
+            <p>
+              <span class="font-semibold text-emerald-500">Productivité :</span>
+              la véritable valeur des analystes réside dans leur expertise à produire
+              une analyse des risques pertinente. L'interface utilisateur est structurée
+              pour minimiser le temps passé à formater et à changer, et à utiliser
+              à la place les catalogues et les analyses précédentes pour se concentrer
+              sur le contenu.
+            </p>
+            <p>
+              <span class="font-semibold text-emerald-500"
+                >Flexibilité de déploiement :</span
+              > Mira peut être déployé sur site ou dans le cloud, en fonction de
+              votre maturité et contraintes. Nous offrons un essai gratuit pour vous
+              aider à décider quelle option de déploiement est la meilleure.
+            </p>
+          </div>
+          <div class="md:w-1/2 md:flex">
+            <div class="m-auto">
+              <Picture
+                src={Puzzle}
+                alt="Mira Logo"
+                widths={[1000]}
+                loading="eager"
+                format="avif"
+                sizes=" 25%"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featues -->
+      <section class="p-10 text-left m-20 relative">
+        <div
+          class="absolute w-64 h-64 rounded-full bg-emerald-400 opacity-50 mix-blend-multiply filter blur-3xl -left-40 top-20 blob delay-6"
+        >
+        </div>
+
+        <div class="text-3xl text-indigo-900 font-title text-center">
+          ☑️ Fonctionnalités
+        </div>
+        <div class="mb-8 font-highlight text-center text-slate-700">
+          Des capacités puissantes qui peuvent être adaptées à vos besoins
+          spécfiques
+        </div>
+        <p>
+          <ul class="list-disc p-4 grid grid-cols-2 gap-4">
+            <li>Folder-based access control</li>
+            <li>Catalog feature to reuse security functions</li>
+            <li>Analyst personal dashboard</li>
+            <li>Automated risk analysis review (X-Rays)</li>
+            <li>OWASP scoring assistant</li>
+            <li>Exec dashboard</li>
+            <li>PDF/CSV export</li>
+            <li>Backup/Restore capabilities</li>
+            <li>Matrix customization</li>
+            <li>Jira integration</li>
+            <li>Threats catalog</li>
+            <li>Risk Acceptance management</li>
+            <li>AI-assisted analysis*</li>
+            <li>Adversary simulator*</li>
+          </ul>
+          (*coming soon)
+        </p>
+      </section>
+
+      <!-- Get started -->
+      <section class="px-10 text-left m-20 relative">
+        <div
+          class="absolute w-40 h-40 rounded-full bg-violet-500 opacity-70 mix-blend-multiply filter blur-3xl right-40 top-20 blob delay-6"
+        >
+        </div>
+
+        <div class="text-3xl text-indigo-900 font-title text-center">
+          🚀 Démarrer
+        </div>
+        <div class="mb-8 font-highlight text-center text-slate-700">
+          Quelle offre adaptée à votre besoin
+        </div>
+        <p class="">
+          Nous proposons différentes options pour répondre à vos besoins :
+          <ul class="list-disc p-4">
+            <li>
+              <a href="#" target="" rel="" class="font-semibold text-orange-500"
+                >Instance Cloud</a
+              >
+              - le moyen le plus simple de commencer avec Mira. Aucune infrastructure
+              n'est nécessaire ; inscrivez-vous et utilisez Mira en quelques minutes.
+            </li>
+            <li>
+              <a href="#" target="" rel="" class="font-semibold text-orange-500"
+                >On-premises</a
+              >
+              - si vous préférez héberger Mira sur votre infrastructure, nous pouvons
+              vous fournir une image Docker et un manifeste Kubernetes pour vous
+              aider à démarrer.
+            </li>
+            <li>
+              <a href="#" target="" rel="" class="font-semibold text-orange-500"
+                >Personnalisé</a
+              >
+              - si vous avez des besoins spécifiques, nous pouvons offrir une offre
+              personnalisée avec des fonctionnalités supplémentaires et un support.
+              Nous nous assurons que l'équipe principale maintient et supporte les
+              fonctionnalités supplémentaires.
+            </li>
+            <li>
+              <a href="#" target="" rel="" class="font-semibold text-orange-500"
+                >Gratuit</a
+              >
+              - Au-delà de l'essai gratuit, nous offrons également une version gratuite
+              à vie pour l'éducation, les soins de santé et les organisations à but
+              non lucratif.
+            </li>
+          </ul>
+        </p>
+      </section>
+    </main>
+    <section class="">
+      <div
+        class="flex gap-2 text-center text-2xl font-highlight items-center justify-center"
+      >
+        <div class="">
+          <a
+            href="/trial"
+            class="text-white bg-emerald-400 hover:bg-indigo-400 p-5 rounded shadow"
+            >Essai gratuit</a
+          >
+        </div>
+        <div class="">
+          <a
+            href="/pricing"
+            class="text-white bg-cyan-600 hover:bg-indigo-400 p-5 rounded shadow"
+            >Détails des prix</a
+          >
+        </div>
+        <div class="">
+          <a
+            href="/mira_gallery"
+            class="text-white bg-orange-300 hover:bg-pink-400 p-5 rounded shadow"
+            >Copies d'écran</a
+          >
+        </div>
+      </div>
+    </section>
+  </Container>
+</Layout>

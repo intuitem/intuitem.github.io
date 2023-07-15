@@ -6,6 +6,8 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["InterVariable", "Inter", ...defaultTheme.fontFamily.sans],
+        'title': ['Belanosima', 'serif'],
+        'highlight': ['Vidaloka', 'serif'],
       },
     },
   },
