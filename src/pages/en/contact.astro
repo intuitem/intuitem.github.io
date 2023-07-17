@@ -11,14 +11,18 @@ import Contactform from "@components/contactform.astro";
   <Container>
     <Sectionhead>
       <Fragment slot="title">Contact</Fragment>
-      <Fragment slot="desc">Gauranteed response within the next 2 business days</Fragment>
+      <Fragment slot="desc">
+        Gauranteed response within the next 2 business days
+      </Fragment>
     </Sectionhead>
 
-    <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
-      <div>
+    <main class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
+
+      <div class="p-4 lg:p-10">
         <h2 class="font-medium text-2xl text-gray-800">Contact Us</h2>
         <p class="text-lg leading-relaxed text-slate-500 mt-3">
-          Ready to get started? We are here to help through our products and services. Contact us today!
+          Ready to get started? We are here to help through our products and
+          services. Contact us today!
         </p>
         <div class="mt-5">
           <div class="flex items-center mt-2 space-x-2 text-gray-600">
@@ -26,25 +30,30 @@ import Contactform from "@components/contactform.astro";
             <span>8 Rue des frères Caudron, 78140 Vélizy-villacoublay</span>
           </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
             <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a
-              href="mailto:contact@intuitem.com"
-              >contact@intuitem.com</a
+              href="mailto:contact@intuitem.com">contact@intuitem.com</a
             >
           </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
             <Icon class="text-gray-400 w-4 h-4" name="uil:phone" /><a
-              href="tel:+33663068331">+33 (0)6 63 06 83 31</a>
+              href="tel:+33663068331">+33 (0)6 63 06 83 31</a
+            >
           </div>
         </div>
       </div>
-      <div>
-        <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
-<script>
-  hbspt.forms.create({
-    region: "eu1",
-    portalId: "25949168",
-    formId: "49e455d7-a570-4ca3-9259-d2932500f345"
-  });
-</script>
+
+      <div class="p-4 lg:p-10">
+        <script
+          charset="utf-8"
+          type="text/javascript"
+          src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            region: "eu1",
+            portalId: "25949168",
+            formId: "49e455d7-a570-4ca3-9259-d2932500f345",
+          });
+        </script>
       </div>
-    </div>
+
+    </main>
   </Container>
 </Layout>
