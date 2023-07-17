@@ -17,9 +17,10 @@ import "../../../styles/base.css";
         La plateforme de gestion des risques de bout-en-bout
       </Fragment>
     </Sectionhead>
+
     <main class="my-8">
       <!-- Vision -->
-      <section class="p-10 text-left m-20 relative">
+      <section class="lg:p-10 text-left lg:m-20 p-4 m-4 relative">
         <div
           class="absolute w-40 h-40 rounded-full bg-cyan-500 opacity-70 mix-blend-multiply filter blur-2xl left-40 top-20 blob"
         >
@@ -74,7 +75,7 @@ import "../../../styles/base.css";
       </section>
 
       <!-- Principles -->
-      <section class="p-10 text-left m-20 relative">
+      <section class="lg:p-10 text-left lg:m-20 p-4 m-4 relative">
         <div
           class="absolute w-64 h-64 rounded-full bg-amber-200 opacity-70 mix-blend-multiply filter blur-2xl -right-40 -top-10 blob delay-3"
         >
@@ -160,7 +161,7 @@ import "../../../styles/base.css";
       </section>
 
       <!-- Featues -->
-      <section class="p-10 text-left m-20 relative">
+      <section class="lg:p-10 text-left lg:m-20 p-4 m-4 relative">
         <div
           class="absolute w-64 h-64 rounded-full bg-emerald-400 opacity-50 mix-blend-multiply filter blur-3xl -left-40 top-20 blob delay-6"
         >
@@ -195,7 +196,7 @@ import "../../../styles/base.css";
       </section>
 
       <!-- Get started -->
-      <section class="px-10 text-left m-20 relative">
+      <section class="lg:p-10 text-left lg:m-20 p-4 m-4 relative">
         <div
           class="absolute w-40 h-40 rounded-full bg-violet-500 opacity-70 mix-blend-multiply filter blur-3xl right-40 top-20 blob delay-6"
         >
@@ -246,32 +247,28 @@ import "../../../styles/base.css";
         </p>
       </section>
     </main>
-    <section class="">
-      <div
-        class="flex gap-2 text-center text-2xl font-highlight items-center justify-center"
+
+    <section
+      class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 p-8 md:p-0"
+    >
+      <a
+        href="/trial"
+        class="bg-emerald-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto text-center"
       >
-        <div class="">
-          <a
-            href="/trial"
-            class="text-white bg-emerald-400 hover:bg-indigo-400 p-5 rounded shadow"
-            >Essai gratuit</a
-          >
-        </div>
-        <div class="">
-          <a
-            href="/pricing"
-            class="text-white bg-cyan-600 hover:bg-indigo-400 p-5 rounded shadow"
-            >Détails des prix</a
-          >
-        </div>
-        <div class="">
-          <a
-            href="/mira_gallery"
-            class="text-white bg-orange-300 hover:bg-pink-400 p-5 rounded shadow"
-            >Copies d'écran</a
-          >
-        </div>
-      </div>
+        <span class="">Essai gratuit</span>
+      </a>
+      <a
+        href="/pricing"
+        class="bg-cyan-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto text-center"
+      >
+        <span class="">Détails des prix</span>
+      </a>
+      <a
+        href="/mira_gallery"
+        class="bg-orange-300 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto text-center"
+      >
+        <span class="">Copies d'écran</span>
+      </a>
     </section>
   </Container>
 </Layout>
