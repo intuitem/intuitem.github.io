@@ -5,7 +5,7 @@ category: articles
 author: Abderrahmane Smimite
 publishDate: "2022-10-28 11:39"
 image: {
-    src: "https://images.unsplash.com/photo-1627163439134-7a8c47e08208?&fit=crop&w=430&h=240",
+    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=430&q=80",
     alt: "Agile is dying"
 }
 snippet: "here is a summary of what I believe is broken about the current state of Agile (yes, the marketing noun with the capital A) that I have tried to illustrate through real-life examples"
