@@ -1,6 +1,6 @@
 ---
 draft: false
-title: Five mistakes Executives Are Still doing About Cybersecurity
+title: "Five mistakes Executives Are Still doing About Cybersecurity"
 category: articles
 author: Abderrahmane Smimite
 publishDate: "2023-09-10 17:54"
@@ -9,7 +9,7 @@ image: {
     alt: "exec meeting"
 }
 snippet: "Five common mistakes that executives keep repeating about cyber security and some actionable insights on how to deal with them"
-tags: ["cybersecurity", "executives", "risk", "management", "leadership","compliance","resiliency"]
+tags: ["cybersecurity", "executives", "risk", "management", "leadership", "compliance", "resiliency"]
 ---
 
 ## Introduction
