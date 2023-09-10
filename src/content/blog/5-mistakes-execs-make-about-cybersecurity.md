@@ -3,7 +3,7 @@ draft: false
 title: Five mistakes Executives Are Still doing About Cybersecurity
 category: articles
 author: Abderrahmane Smimite
-publishDate: "2023-09-10 18:54"
+publishDate: "2023-09-10 17:54"
 image: {
     src: "https://images.unsplash.com/photo-1570126646281-5ec88111777f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=430&q=80",
     alt: "exec meeting"
