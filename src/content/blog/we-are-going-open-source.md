@@ -9,7 +9,7 @@ image: {
     alt: "exec meeting"
 }
 snippet: "Five common mistakes that executives keep repeating about cyber security and some actionable insights on how to deal with them"
-tags: ["cybersecurity", "executives", "risk", "management", "leadership", "compliance", "resiliency"]
+tags: ["cybersecurity", "mira", "ciso-assistant", "open", "source", "compliance", "community", "GRC"]
 ---
 
 Hello to our valued customers, partners, and the cybersecurity community,
