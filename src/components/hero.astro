@@ -1,5 +1,5 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import heroImage from "@assets/hero_3.png";
 import Link from "@components/ui/link.astro";
 import { Icon } from "astro-icon";
@@ -29,10 +29,9 @@ const t = useTranslations(lang);
   </div>
 
   <div class="py-6 md:order-1 hidden md:block z-0">
-    <Picture
+    <Image
       src={heroImage}
       alt="Collaborate to build"
-      widths={[1000, 1500, 3000]}
       loading="eager"
       sizes="100%"
       format="avif"

@@ -8,41 +8,38 @@ const pricing = [
   {
     name: "Self-managed",
     price: {
-      monthly: "3600 €",
+      monthly: "Free",
     },
     popular: false,
     features: [
-      "Deploy MIRA on your own infrastructure",
-      "Yearly-billing and flat for up to 20 users",
-      "Standard support",
+      "Deploy MIRA locally or on your own infrastructure",
+      "AGPLv3 license",
+      "Community support",
       "Manage your updates and backups",
-      "Integration on-demand",
-      "Community portal",
-      "Beta versions preview"
+      "Integration assitance on-demand",
     ],
     button: {
       text: "Get Started",
-      link: "/trial",
+      link: "https://github.com/intuitem/mira-community",
     },
   },
   {
     name: "Cloud-instance",
     price: {
-      monthly: "4800 €",
+      monthly: "19€ / contrib / month",
     },
     popular: true,
     features: [
       "We handle hosting and operations",
-      "Yearly-billing and flat for up to 20 users",
-      "France-located datacenter",
-      
-      "Standard support",
+      "Readers seats are free. You only pay for contributors",
+      "EU-located datacenter",
+      "Priority support",
       "Automatic backups & updates (with notification)",
-      "Standard SLA",
-      "Community portal",
+      "Customers portal",
+      "Early access to Beta preview"
     ],
     button: {
-      text: "Get Started",
+      text: "Free trial",
       link: "/trial",
     },
   },
@@ -51,6 +48,7 @@ const pricing = [
     price: "Custom",
     popular: false,
     features: [
+      "Volume discounts",
       "Customized features for your needs",
       "Deploy on custom domains",
       "Integration assistance (to fit your infrastructure)",
@@ -72,7 +70,7 @@ const pricing = [
     <Sectionhead>
       <Fragment slot="title">Pricing</Fragment>
       <Fragment slot="desc">
-        Mira pricing is simple, predictive and cost-efficient. All pacakges are on a yearly-billing.<br />
+        Mira pricing is simple, predictive and cost-efficient. All pacakges are on a <strong>yearly-billing</strong>.<br />
       </Fragment>
     </Sectionhead>
 
@@ -80,16 +78,5 @@ const pricing = [
       {pricing.map((item) => <Pricing plan={item} />)}
     </div>
   </Container>
-  <Container>
-    <div class="mt-6 md:px-36">
-    <div class="text-align my-4 p-4 rounded-lg border-2">
-      <div class="text-2xl font-semibold mb-2">Free</div>
-      <div class="">30-days to try out all the features of MIRA. No credit card required. <a href="/trial" class="font-semibold text-indigo-600">Start now!</a>
-        <div><span class="text-orange-500 font-semibold">New:</span> Self-managed offer is <span class="font-semibold">free forever</span>
-          for education, healthcare and non-profit organizations.</div>
-      
-      </div>
-    </div>
-  </div>
-  </Container>
+
 </Layout>
