@@ -5,25 +5,15 @@ import Sectionhead from "@components/sectionhead.astro";
 ---
 
 <Layout title="Trial">
-  <Container class="p-16 lg:p-24">
+  <Container class="">
     <Sectionhead>
       <Fragment slot="title">Free trial</Fragment>
       <Fragment slot="desc">
         Start your free 30-days today - No credit card required
       </Fragment>
     </Sectionhead>
-    <main>
-      <script
-        charset="utf-8"
-        type="text/javascript"
-        src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
-      <script>
-        hbspt.forms.create({
-          region: "eu1",
-          portalId: "25949168",
-          formId: "c8bab735-3ee9-4da8-91ac-5c774d7578c9",
-        });
-      </script>
-    </main>
+    <div class="py-4">
+      <iframe style="border:none;width:100%;" height="750px" src="https://opnform.com/forms/trial-form-pvte4j"></iframe>
+    </div>
   </Container>
 </Layout>

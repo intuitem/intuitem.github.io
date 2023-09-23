@@ -5,24 +5,13 @@ import Sectionhead from "@components/sectionhead.astro";
 ---
 
 <Layout title="Trial">
-  <Container class=" p-16">
+  <Container class="">
     <Sectionhead>
       <Fragment slot="title">Essai gratuit</Fragment>
       <Fragment slot="desc">Démarrez votre essai de 30 jours dès aujourd'hui. Carte bancaire non requise.</Fragment>
     </Sectionhead>
-    <main>
-      <script
-        charset="utf-8"
-        type="text/javascript"
-        src="//js-eu1.hsforms.net/forms/embed/v2.js"
-      ></script>
-      <script>
-        hbspt.forms.create({
-          region: "eu1",
-          portalId: "25949168",
-          formId: "9b57ea10-e409-455e-9451-8a3a60736490",
-        });
-      </script>
-    </main>
+    <div class="py-4">
+      <iframe style="border:none;width:100%;" height="750px" src="https://opnform.com/forms/trial-form-pvte4j-1"></iframe>
+    </div>
   </Container>
 </Layout>
