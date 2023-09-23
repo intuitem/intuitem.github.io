@@ -1,5 +1,5 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 const images = await Astro.glob("../assets/ss/*.{jpg,jpeg,png}");
 ---
 
@@ -7,7 +7,7 @@ const images = await Astro.glob("../assets/ss/*.{jpg,jpeg,png}");
     {
         images.map((image) => (
             <a href={image.default.src}>
-                <Picture
+                <Image
                     src={image.default}
                     alt=""
                     format={"webp"}
@@ -24,10 +24,5 @@ const images = await Astro.glob("../assets/ss/*.{jpg,jpeg,png}");
         columns: 16rem auto;
         column-gap: 0.5rem;
 
-        img {
-            border-radius: 0.5rem;
-            width: 100%;
-            margin-bottom: 0.5rem;
-        }
     }
 </style>

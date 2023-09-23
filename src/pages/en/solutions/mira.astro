@@ -2,7 +2,7 @@
 import Container from "@components/container.astro";
 import Layout from "@layouts/Layout.astro";
 import Sectionhead from "@components/sectionhead.astro";
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import MiraLogo from "assets/mira_logo.png";
 import Puzzle from "assets/mira_support.png";
 
@@ -28,7 +28,7 @@ import "../../../styles/base.css"
         </div>
         <div class="md:flex">
           <div class="md:w-1/6">
-            <Picture
+            <Image
               src={MiraLogo}
               alt="Mira Logo"
               widths={[500]}
@@ -132,7 +132,7 @@ import "../../../styles/base.css"
           </div>
           <div class="md:w-1/2 md:flex">
             <div class="m-auto">
-              <Picture
+              <Image
                 src={Puzzle}
                 alt="Mira Logo"
                 widths={[1000]}
@@ -224,7 +224,7 @@ import "../../../styles/base.css"
       class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 p-8 md:p-0"
     >
       <a
-        href="/trial"
+        href="/en/trial"
         class="bg-emerald-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto text-center"
       >
         <span class="">Free trial</span>
@@ -233,7 +233,7 @@ import "../../../styles/base.css"
         href="/pricing"
         class="bg-cyan-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded w-full md:w-auto text-center"
       >
-        <span class="">Princing details</span>
+        <span class="">Pricing details</span>
       </a>
       <a
         href="/mira_gallery"

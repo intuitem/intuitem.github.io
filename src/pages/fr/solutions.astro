@@ -2,7 +2,7 @@
 import Container from "@components/container.astro";
 import Layout from "@layouts/Layout.astro";
 import Sectionhead from "@components/sectionhead.astro";
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import MiraLogo from "assets/mira_logo.png";
 import CALogo from "@assets/ciso-assistant_logo.png";
 import ConsultancyLogo from "@assets/consultancy.png";
@@ -39,7 +39,7 @@ import crisis from "@assets/crisis.png";
       <group class="md:flex">
 
         <div class="flex items-center justify-center md:w-1/3">
-            <Picture
+            <Image
               src={MiraLogo}
               alt="Mira Logo"
               widths={[500]}
@@ -114,7 +114,7 @@ import crisis from "@assets/crisis.png";
         </div>
         <div class="w-1/3 flex items-center justify-center">
           <div class="md:w-1/3">
-            <Picture
+            <Image
               src={CALogo}
               alt="CISO Assistant Logo"
               widths={[500]}
@@ -180,7 +180,7 @@ import crisis from "@assets/crisis.png";
         </div>
         <div class="lg:w-1/2 w-1/3 flex items-center justify-center">
           <div class="md:w-1/3">
-            <Picture
+            <Image
               src={cyberSec}
               alt="GRC"
               widths={[500]}
@@ -207,7 +207,7 @@ import crisis from "@assets/crisis.png";
       <div class="flex">
         <div class="lg:w-1/2 w-1/3 flex items-center justify-center">
           <div class="md:w-1/3">
-            <Picture
+            <Image
               src={crisis}
               alt="Crisis"
               widths={[500]}
@@ -293,7 +293,7 @@ import crisis from "@assets/crisis.png";
         </div>
         <div class="w-1/3 flex items-center justify-center">
           <div class="md:w-1/3">
-            <Picture
+            <Image
               src={audit}
               alt="audit"
               widths={[500]}
@@ -320,7 +320,7 @@ import crisis from "@assets/crisis.png";
       <div class="flex">
         <div class="w-1/3 flex items-center justify-center">
           <div class="md:w-1/3">
-            <Picture
+            <Image
               src={AILogo}
               alt="AI/ML"
               widths={[500]}
@@ -419,7 +419,7 @@ import crisis from "@assets/crisis.png";
         </div>
         <div class="w-1/3 flex items-center justify-center">
           <div class="md:w-1/3">
-            <Picture
+            <Image
               src={ConsultancyLogo}
               alt="Consultancy"
               widths={[500]}

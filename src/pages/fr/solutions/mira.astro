@@ -2,7 +2,7 @@
 import Container from "@components/container.astro";
 import Layout from "@layouts/Layout.astro";
 import Sectionhead from "@components/sectionhead.astro";
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import MiraLogo from "assets/mira_logo.png";
 import Puzzle from "assets/mira_support.png";
 
@@ -34,7 +34,7 @@ import "../../../styles/base.css";
         </div>
         <div class="md:flex">
           <div class="md:w-1/6">
-            <Picture
+            <Image
               src={MiraLogo}
               alt="Mira Logo"
               widths={[500]}
@@ -147,7 +147,7 @@ import "../../../styles/base.css";
           </div>
           <div class="md:w-1/2 md:flex">
             <div class="m-auto">
-              <Picture
+              <Image
                 src={Puzzle}
                 alt="Mira Logo"
                 widths={[1000]}
