@@ -36,6 +36,9 @@ publishedBlogEntries.sort(function (a, b) {
                     alt={blogPostEntry.data.image.alt}
                     width={430}
                     height={280}
+                    background="#ffffff"
+                    fit="cover"
+                    position="center"
                     loading={index <= 2 ? "eager" : "lazy"}
                     decoding={index <= 2 ? "sync" : "async"}
                     class="w-full rounded-md"
