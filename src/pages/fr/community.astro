@@ -1,55 +1,68 @@
 ---
 import Container from "@components/container.astro";
+import Tile from "@components/Tile.astro";
 import Layout from "@layouts/Layout.astro";
+import github from "assets/icons/github.png";
+import linkedin from "assets/icons/linkedin.png";
+import medium from "assets/icons/medium.png";
+import discord from "assets/icons/discord.png";
+import youtube from "assets/icons/youtube.png";
+import blog from "assets/icons/blog.png";
+import external_link from "assets/icons/external_link.png";
+const data = [
+  {
+    title: "Mira-Community",
+    description: "Version gratuite et open source de Mira. Plus de détails dans le readme.",
+    link: "https://github.com/intuitem/mira-community",
+    icon: github,
+  },
+  {
+    title: "Discord",
+    description: "Rejoignez notre communauté sur Discord et interagissez avec l'équipe et d'autres experts",
+    link: "https://discord.gg/7ubENCPF",
+    icon: discord,
+  },
+  {
+    title: "Agile Security Framework",
+    description: "Découvrez notre méthodologie de sécurité agile",
+    link: "https://agilesecurityframework.com",
+    icon: external_link,
+  },
+  {
+    title: "Blog",
+    description: "Découvrez nos articles sur le blog",
+    link: "https://intuitem.com/blog",
+    icon: blog,
+  },
+  {
+    title: "LinkedIn",
+    description: "Suivez notre actualité sur Linkedin",
+    link: "https://www.linkedin.com/company/intuitem",
+    icon: linkedin,
+  },
+  {
+    title: "Medium",
+    description: "Consultez nos publications sur Medium",
+    link: "https://medium.com/@smimite",
+    icon: medium,
+  },
+  {
+    title: "Streams",
+    description: "Bientôt",
+    link: "#",
+    icon: youtube,
+  },
+
+];
 ---
 
 <Layout title="Communauté">
-  <Container class="p-10">
-    <section class="lg:p-10 p-2">
-      <div class="mb-4 font-highlight text-2xl text-violet-800">
-        Agile Security Framework (ASF)
+  <Container class="p-4 lg:p-10">
+    <section class="">
+      <!-- Create a grid of tiles in Astro style -->
+      <div class="grid grid-cols-3 gap-4 lg:gap-10">
+        {data.map((item) => <Tile params={item} />)}
       </div>
-      <p class="my-4">
-        Les méthodologies Agile sont aujourd'hui la norme pour développer du
-        logiciel. Cependant, la cyber sécurité reste encore difficile à intégrer
-        efficacement dans le cycle de développement. En tant que praticiens
-        agiles nous-mêmes, nous avons mis en place une approche simple et
-        pratique pour y remédier.
-      </p>
-      <p class="my-4">
-        La documentation de l'ASF a beaucoup évolué au fil des années et nous
-        l'avons migré vers un site dédié, disponible ici : <a
-          href="https://agilesecurityframework.com"
-          class="text-indigo-500">agilesecurityframework.com</a
-        >
-      </p>
-      <p class="my-4">
-        Vous souhaitez contribuer ? N'hésitez pas à nous contacter 🤗
-      </p>
-    </section>
-
-    <section class="lg:p-10 p-2">
-      <div class="mb-4 font-highlight text-2xl text-violet-800">
-        Vendor Manager - version communautaire
-      </div>
-
-      <p>
-        Si vous essayez d'optimiser votre TCO (Total Cost of Ownership), vous
-        vous tournez probablement de plus en plus vers des produits SaaS et/ou
-        services externes. Dans ce cas, la gestion des fournisseurs peut devenir
-        un vrai défi et une charge considérable pour vous et vos équipes.
-      </p>
-      <p>
-        Dans le cadre de notre initiative pour l'amélioration de la gestion des
-        risques des tiers (Third Party Risk Management), nous offrons une
-        édition communautaire GRATUITE de notre solution Vendor Manager afin que
-        toute organisation puisse se permettre un minimum de structure pour
-        gérer les tiers de manière simple et optimale.
-      </p>
-      <p>
-        Le repo git est en cours de structuration et sera bientôt publié. Restez
-        à l'écoute !
-      </p>
     </section>
   </Container>
 </Layout>

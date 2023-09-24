@@ -1,0 +1,12 @@
+---
+const { params } = Astro.props;
+import { Image } from "astro:assets";
+---
+<!-- Make this clickable and go to the specified link -->
+<a href={ params.link }>
+<div class=" bg-slate-50 p-2 rounded-lg shadow-lg hover:bg-slate-100" >
+    <div class=" p-1"><Image src={ params.icon } alt="icon" width={128} height={128} /></div>
+    <div class="my-1 font-mono font-bold">{ params.title }</div>
+    <div class=" text-xs my-1">{ params.description }</div>
+</div>
+</a>
