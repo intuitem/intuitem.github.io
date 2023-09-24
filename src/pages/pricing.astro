@@ -6,7 +6,7 @@ import Pricing from "@components/pricing.astro";
 
 const pricing = [
   {
-    name: "Self-managed",
+    name: "Community",
     price: {
       monthly: "Free",
     },
@@ -16,7 +16,7 @@ const pricing = [
       "AGPLv3 license",
       "Community support",
       "Manage your updates and backups",
-      "Integration assitance on-demand",
+      "Integration assistance on-demand",
     ],
     button: {
       text: "Get Started",
@@ -24,18 +24,17 @@ const pricing = [
     },
   },
   {
-    name: "Cloud-instance",
+    name: "Cloud",
     price: {
       monthly: "19€ / contrib / month",
     },
     popular: true,
     features: [
+    "Readers seats are free. You only pay for contributors",
       "We handle hosting and operations",
-      "Readers seats are free. You only pay for contributors",
       "EU-located datacenter",
-      "Priority support",
+      "Priority support and customer portal",
       "Automatic backups & updates (with notification)",
-      "Customers portal",
       "Early access to Beta preview"
     ],
     button: {
@@ -49,6 +48,7 @@ const pricing = [
     popular: false,
     features: [
       "Volume discounts",
+      "Data migration assistance",
       "Customized features for your needs",
       "Deploy on custom domains",
       "Integration assistance (to fit your infrastructure)",
