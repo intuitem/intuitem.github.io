@@ -21,8 +21,7 @@ import Contactform from "@components/contactform.astro";
       <div class="p-4 lg:p-10">
         <h2 class="font-medium text-2xl text-gray-800">Contact Us</h2>
         <p class="text-lg leading-relaxed text-slate-500 mt-3">
-          Ready to get started? We are here to help through our products and
-          services. Contact us today!
+          Interested in our products and services? Have a question or feedback? We would love to hear from you!
         </p>
         <div class="mt-5">
           <div class="flex items-center mt-2 space-x-2 text-gray-600">
@@ -41,7 +40,27 @@ import Contactform from "@components/contactform.astro";
       </div>
 
       <div class="p-4 lg:p-10">
-        <iframe style="border:none;width:100%;" height="600px" src="https://opnform.com/forms/contact-us-6clapb"></iframe>
+        <form>
+          <div class="mb-6">
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name*</label>
+            <input id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="J doe" required>
+          </div>
+          <div class="mb-6">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email*</label>
+            <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@organization.com" required>
+          </div>
+          <div class="mb-6">
+            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
+            <input id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="+33">
+          </div>
+          <div class="mb-6">
+            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Message*</label>
+            <textarea id="message" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message" required></textarea>
+          </div>
+          <div class="mb-6">
+            <Button type="submit" class="w-full">Send</Button>
+          </div>
+        </form>
       </div>
 
     </main>
