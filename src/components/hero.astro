@@ -4,7 +4,7 @@ import heroImage from "@assets/hero_3.png";
 import Link from "@components/ui/link.astro";
 import { Icon } from "astro-icon";
 
-import '../styles/base.css';
+import "../styles/base.css";
 
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
@@ -42,9 +42,12 @@ const t = useTranslations(lang);
     <h1
       class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter"
     >
-      <!-- make the string in hero.title break into two lines after the , -->
-
-      {t("hero.title")}
+      {t("hero.title_l1")}
+    </h1>
+    <h1
+      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter"
+    >
+      {t("hero.title_l2")}
     </h1>
     <p class="text-lg mt-4 text-slate-600 max-w-xl">
       {t("hero.paragraph1")}
