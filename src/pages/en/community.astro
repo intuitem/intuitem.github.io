@@ -17,9 +17,15 @@ const data = [
     icon: github,
   },
   {
+    title: "CISO Assistant - community",
+    description: "Free and Open Source Community Edition of CISO Assistant",
+    link: "https://github.com/intuitem/ciso-assistant-community",
+    icon: github,
+  },
+  {
     title: "Discord",
     description: "Join our open Discord server to chat with the team and the experts community",
-    link: "https://discord.gg/7ubENCPF",
+    link: "https://discord.gg/qvkaMdQ8da",
     icon: discord,
   },
   {
@@ -60,7 +66,7 @@ const data = [
   <Container class="p-4">
     <section class="">
       <!-- Create a grid of tiles in Astro style -->
-      <div class="grid grid-cols-3 gap-4">
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
         {data.map((item) => <Tile params={item} />)}
       </div>
     </section>
