@@ -1,19 +1,156 @@
 ---
-import Container from "@components/container.astro";
+import { Icon } from "astro-icon";
 import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
+import Button from "@components/ui/button.astro";
+import Contactform from "@components/contactform.astro";
+const dwh = import.meta.env.PUBLIC_DISCORD_WH;
 ---
 
-<Layout title="Trial">
-  <Container class="">
+<Layout title="Mira : Essai gratuit">
+  <Container>
     <Sectionhead>
-      <Fragment slot="title">Free trial</Fragment>
-      <Fragment slot="desc">
-        Start your free 30-days today - No credit card required
-      </Fragment>
+      <Fragment slot="title">Mira: Free trial</Fragment>
+      <Fragment slot="desc">Try out Mira for 30 days for free. No commitment. No credit card required.</Fragment>
     </Sectionhead>
-    <div class="py-4">
-      <iframe style="border:none;width:100%;" height="750px" src="https://opnform.com/forms/trial-form-pvte4j"></iframe>
-    </div>
+
+    <main class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
+      <div class="p-4 lg:p-10">
+        <h2 class="font-medium text-2xl text-gray-800">Mira Cloud - Free trial</h2>
+        <p class="text-lg leading-relaxed text-slate-500 mt-3">
+          Spin up your own private Mira instance in a few minutes and discover a new experience for end to end risk management. 
+        </p>
+        <p class="text-lg leading-relaxed text-slate-500 mt-3">
+          Interested in the on-premises version? <a href="/en/community" class=" text-indigo-500">Checkout the community</a> edition or <a class="text-indigo-500" href="/en/contact">reach out to the team</a> to deep dive in your specific needs.
+        </p>
+        
+        <div id="success-message" class="my-2 hidden">
+          <p class="text-green-500 text-lg font-semibold">Your instance will be available in a few minutes. During high load period, it could take some time but no more than 48h. If you didn't get the confirmation email, check your spams folder.</p>
+        </div>
+        <div id="error-message" class="my-2 hidden">
+          <p class="text-red-500 text-lg font-semibold">Something went wrong while processing the request. Try again later.</p>
+        </div>
+      </div>
+
+      <div class="p-4 lg:p-10">
+
+        <form method="POST" action="/action" enctype="multipart/form-data">
+          <div class="mb-6">
+            <label
+              for="name"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Full name*</label
+            >
+            <input
+              id="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="First and last name"
+              name="name"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="email"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Email*</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Needed for the confirmation email"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="company"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Organization*</label
+            >
+            <input
+              id="company"
+              name="company"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="will be used to name your instance"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="phone"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Phone</label
+            >
+            <input
+              id="phone"
+              name="phone"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="+33"
+            />
+          </div>
+          <div>
+            <label
+              class="block my-2 py-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+              <input type="checkbox" name="marketing" id="marketing" class="mr-2" />
+              
+              <span>I accept to be contacted by the team to review my needs and use case</span></label
+            >
+              
+            </label>
+          </div>
+
+
+
+          <div class="mb-6">
+            <Button type="submit" class="w-full">Send</Button>
+          </div>
+        </form>
+
+      </div>
+      
+
+
+
+      <script define:vars={{ dwh }}>
+        const form = document.querySelector("form");
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const formData = new FormData(form);
+          const jsonObject = Array.from(formData.entries()).reduce(
+            (obj, [key, value]) => {
+              obj[key] = value;
+              return obj;
+            },
+            {}
+          );
+          const response = await fetch(dwh, {
+            method: "POST",
+            body: JSON.stringify({
+              content: JSON.stringify(jsonObject),
+              username: "intuitem-trial-form",
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          const result = await response; // await just the response
+
+          console.log(result);
+          if (response.status === 200 || response.status === 204) {
+            const successMessage = document.getElementById("success-message");
+            successMessage.classList.remove("hidden");
+          } else {
+            const errorMessage = document.getElementById("error-message");
+            errorMessage.classList.remove("hidden");
+          }
+
+        });
+      </script>
+    </main>
   </Container>
 </Layout>
