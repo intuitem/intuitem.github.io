@@ -50,19 +50,19 @@ const menuitems = [
 ];
 ---
 
-<Container class="">
-  <header class="flex flex-col lg:flex-row justify-between items-center my-5 mx-5">
+<Container class="mb-5">
+  <header class="flex flex-col fixed z-10 top-0 left-0 right-0 bg-white lg:flex-row justify-between items-center border-b border-gray-300 py-2 px-5">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
-        <div class="flex">
+        <a href=`/${lang}/`>
+        <div class="flex items-center">
+          
           <span class="mr-2">
-            <img src="https://25949168.fs1.hubspotusercontent-eu1.net/hubfs/25949168/logo_empty.png" width="32px" height="32px">
+            <img src="https://25949168.fs1.hubspotusercontent-eu1.net/hubfs/25949168/logo_empty.png" width="50px" height="50px">
           </span>
-          <a href=`/${lang}/` class="text-lg"
-          >
-          <span class="font-bold text-slate-800">intuitem</span>
-        </a>
+          <span class="font-bold text-slate-800 text-4xl">intuitem</span>
         </div>
+        </a>
         
         <div class="block lg:hidden">
           <MenuIcon class="w-4 h-4 text-gray-800" />
@@ -81,11 +81,21 @@ const menuitems = [
                   />
                 )}
 
-                {!item.children && (
+                {!item.children && item.path != `/${lang}/trial` && (
                   <li>
                     <a
                       href={item.path}
                       class="flex lg:px-3 py-2 text-gray-600 hover:text-gray-900">
+                      {item.title}
+                    </a>
+                  </li>
+                )}
+
+                {item.path == `/${lang}/trial` && (
+                  <li>
+                    <a
+                      href={item.path}
+                      class="flex lg:px-3 py-2 bg-indigo-800 text-white hover:bg-indigo-600 border-2 border-transparent rounded">
                       {item.title}
                     </a>
                   </li>
@@ -99,7 +109,12 @@ const menuitems = [
         </div>
       </MenuItems>
     </Astronav>
-    <div>
+    <div class="flex flex-row items-center space-x-12">
+      <div>
+        github
+        linkedin
+        discord
+      </div>
       <div class="flex my-2">
         <LanguagePicker />
       </div>
