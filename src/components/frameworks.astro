@@ -1,0 +1,47 @@
+---
+// @ts-ignore
+import { Image } from "astro:assets";
+import iso27001 from "assets/frameworks/iso27001.png";
+import nist from "assets/frameworks/nist.png";
+import anssi from "assets/frameworks/anssi.png";
+import nis2 from "assets/frameworks/nis2.svg";
+import owasp from "assets/frameworks/owasp.png";
+import mitre_attack from "assets/frameworks/mitre_attack.png";
+import enisa from "assets/frameworks/enisa.png";
+import fair from "assets/frameworks/fair.svg";
+
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="flex flex-col items-center mt-24 px-4 lg:px-10">
+  <div class="text-center text-slate-800 text-2xl font-highlight">{t("frameworks.header")}</div>
+  <div class="grid gap-1 md:gap-2 items-center justify-center mt-10 lg:grid-cols-4 grid-cols-2">
+    <div class="justify-self-center">
+        <Image alt="iso27001" src={iso27001} widths={[200, 400, 600]} width={250} height={250}/>
+    </div>
+    <div class="justify-self-center">
+        <Image alt="nist" src={nist} widths={[200, 400, 600]} width={250} height={250}/>
+    </div>
+    <div class="justify-self-center">
+        <Image alt="anssi" src={anssi} widths={[200, 400, 600]} width={150} height={150}/>
+    </div>
+    <div class="justify-self-center">
+        <Image alt="nis2" src={nis2} widths={[200, 400, 600]} width={150} height={150}/>
+    </div>
+    <div class="justify-self-center">
+        <Image alt="owasp" src={owasp} widths={[200, 400, 600]} width={150} height={150}/>
+    </div>
+    <div class="justify-self-center">
+        <Image alt="mitre_attack" src={mitre_attack} widths={[200, 400, 600]} width={250} height={250}/>
+    </div>
+    <div class="justify-self-center">
+        <Image alt="enisa" src={enisa} widths={[200, 400, 600]} width={150} height={150}/>
+    </div>
+    <div class="justify-self-center">
+        <Image alt="fair" src={fair} widths={[200, 400, 600]} width={250} height={250}/>
+    </div>
+  </div>
+</div>
