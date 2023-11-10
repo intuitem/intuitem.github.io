@@ -5,6 +5,10 @@ import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 import LanguagePicker from "@components/LanguagePicker.astro";
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { Image } from "astro:assets";
+import discord from "assets/icons/discord_black.png";
+import github from "assets/icons/github_black.png";
+import linkedin from "assets/icons/linkedin_black.png";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -51,7 +55,7 @@ const menuitems = [
 ---
 
 <Container class="">
-  <header class="flex flex-col fixed z-10 top-0 left-0 right-0 shadow-md bg-white lg:flex-row justify-between items-center border-b border-gray-300 py-2 px-5">
+  <header class="flex flex-col fixed z-10 top-0 left-0 right-0 shadow-md bg-white lg:flex-row justify-evenly items-center border-b border-gray-300 py-2 px-5">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <a href=`/${lang}/`>
@@ -69,7 +73,7 @@ const menuitems = [
         </div>
       </div>
       <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
-        <ul class="flex flex-col lg:flex-row lg:gap-3">
+        <ul class="flex flex-col lg:flex-row lg:gap-3 font-semibold">
           {
             menuitems.map((item, index) => (
               <>
@@ -109,12 +113,12 @@ const menuitems = [
         </div>
       </MenuItems>
     </Astronav>
+    <div class="flex flex-row items-center space-x-4">
+      <a class="hover:opacity-80 duration-300 opacity-60" href="https://github.com/intuitem" target="_blank"><Image src={ github } alt="github_link" width={35} height={35} /></a>
+      <a class="hover:opacity-80 duration-300 opacity-60" href="https://discord.gg/qvkaMdQ8da" target="_blank"><Image src={ discord } alt="discord_link" width={35} height={35} /></a>
+      <a class="hover:opacity-80 duration-300 opacity-60" href="https://www.linkedin.com/company/intuitem" target="_blank"><Image src={ linkedin } alt="linkedin_link" width={35} height={35} /></a>
+    </div>
     <div class="flex flex-row items-center space-x-12">
-      <div>
-        github
-        linkedin
-        discord
-      </div>
       <div class="flex my-2">
         <LanguagePicker />
       </div>
