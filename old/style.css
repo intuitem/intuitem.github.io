@@ -908,7 +908,7 @@ video {
   min-height: 100vh;
 }
 
-.w-screen {
+.w-full {
   width: 100vw;
 }
 
