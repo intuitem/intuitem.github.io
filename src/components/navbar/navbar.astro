@@ -55,7 +55,7 @@ const menuitems = [
 ---
 
 <Container class="">
-  <header class="flex flex-col fixed z-10 top-0 left-0 right-0 shadow-md bg-white lg:flex-row justify-evenly items-center border-b border-gray-300 py-2 px-5">
+  <header id="header" class="flex flex-col fixed z-10 top-0 left-0 right-0 bg-white lg:flex-row justify-evenly items-center py-2 px-5 transition duration-150">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <a href=`/${lang}/`>
@@ -125,3 +125,20 @@ const menuitems = [
     </div>
   </header>
 </Container>
+
+<script>
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    var class_scroll = ["border-b", "border-gray-300", "shadow-md"]
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 50) {
+      for (let i=0; i<class_scroll.length; i++) {
+        document.getElementById("header").classList.add(class_scroll[i]);
+      }
+    } else {
+      for (let i=0; i<class_scroll.length; i++) {
+        document.getElementById("header").classList.remove(class_scroll[i]);
+      }
+    }
+  }
+</script>
