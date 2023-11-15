@@ -31,6 +31,11 @@ export const ui = {
         'cta.text1': 'Vous avez du mal à gérer vos risques ?',
         'cta.text2': 'Découvrez Mira, une solution simple et intuitive pour aller au-delà des fichiers Excel et rendre l\'analyse des risques opérationnelle !',
         'cta.button': 'Commencer maintenant',
+        'footer.pricing': 'Tarification',
+        'footer.privacy': 'Politique de confidentialité',
+        'footer.tos': "Conditions d'utilisation",
+        'footer.about': 'A propos',
+        'footer.details': 'Plus de détails',
     },
     en: {
         'nav.home': 'Home',
@@ -54,5 +59,10 @@ export const ui = {
         'cta.text1': 'Struggling with Risk Management?',
         'cta.text2': 'Introducing Mira, an end-to-end, simple and intuitive solution to go beyond the spreadsheets and make risk analysis actionable!',
         'cta.button': 'Get Started',
+        'footer.pricing': 'Pricing',
+        'footer.privacy': 'Privacy Policy',
+        'footer.tos': "Terms of Service",
+        'footer.about': 'About us',
+        'footer.details': 'More details',
     },
 } as const;
