@@ -1,14 +1,13 @@
 ---
 import Container from "@components/container.astro";
-import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 import LanguagePicker from "@components/LanguagePicker.astro";
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 import { Image } from "astro:assets";
-import discord from "assets/icons/discord_black.png";
-import github from "assets/icons/github_black.png";
-import linkedin from "assets/icons/linkedin_black.png";
+import discord from "assets/icons/discord_black.svg";
+import github from "assets/icons/github_black.svg";
+import linkedin from "assets/icons/linkedin_black.svg";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
