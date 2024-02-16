@@ -1,10 +1,13 @@
 ---
 import Container from "@components/container.astro";
-import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 import LanguagePicker from "@components/LanguagePicker.astro";
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { Image } from "astro:assets";
+import discord from "assets/icons/discord_black.svg";
+import github from "assets/icons/github_black.svg";
+import linkedin from "assets/icons/linkedin_black.svg";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -16,10 +19,6 @@ const menuitems = [
       {
         title: t('nav.overview'),
         path: `/${lang}/solutions/`,
-      },
-      {
-        title: "Mira",
-        path: `/${lang}/solutions/mira/`,
       },
       {
         title: "CISO Assistant",
@@ -51,25 +50,25 @@ const menuitems = [
 ---
 
 <Container class="">
-  <header class="flex flex-col lg:flex-row justify-between items-center my-5 mx-5">
+  <header id="header" class="flex flex-col fixed z-10 top-0 left-0 right-0 bg-white lg:flex-row justify-evenly items-center py-2 px-5 transition duration-150">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
-        <div class="flex">
+        <a href=`/${lang}/`>
+        <div class="flex items-center">
+          
           <span class="mr-2">
-            <img src="https://25949168.fs1.hubspotusercontent-eu1.net/hubfs/25949168/logo_empty.png" width="32px" height="32px">
+            <img src="https://25949168.fs1.hubspotusercontent-eu1.net/hubfs/25949168/logo_empty.png" width="50px" height="50px">
           </span>
-          <a href=`/${lang}/` class="text-lg"
-          >
-          <span class="font-bold text-slate-800">intuitem</span>
-        </a>
+          <span class="font-bold text-slate-800 text-4xl">intuitem</span>
         </div>
+        </a>
         
         <div class="block lg:hidden">
           <MenuIcon class="w-4 h-4 text-gray-800" />
         </div>
       </div>
       <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
-        <ul class="flex flex-col lg:flex-row lg:gap-3">
+        <ul class="flex flex-col lg:flex-row lg:gap-3 font-semibold">
           {
             menuitems.map((item, index) => (
               <>
@@ -81,7 +80,7 @@ const menuitems = [
                   />
                 )}
 
-                {!item.children && (
+                {!item.children && item.path != `/${lang}/trial` && (
                   <li>
                     <a
                       href={item.path}
@@ -90,19 +89,51 @@ const menuitems = [
                     </a>
                   </li>
                 )}
+
+                {item.path == `/${lang}/trial` && (
+                  <li>
+                    <a
+                      href={item.path}
+                      class="flex lg:px-3 py-2 bg-indigo-800 text-white hover:bg-indigo-600 border-2 border-transparent rounded">
+                      {item.title}
+                    </a>
+                  </li>
+                )}
               </>
             ))
           }
         </ul>
-        <div class="flex my-2 hidden">
+        <div class="my-2 hidden">
           <LanguagePicker />
         </div>
       </MenuItems>
     </Astronav>
-    <div>
+    <div class="flex flex-row items-center space-x-4">
+      <a class="hover:opacity-80 duration-300 opacity-60" href="https://github.com/intuitem" target="_blank"><Image src={ github } alt="github_link" width={35} height={35} /></a>
+      <a class="hover:opacity-80 duration-300 opacity-60" href="https://discord.gg/qvkaMdQ8da" target="_blank"><Image src={ discord } alt="discord_link" width={40} height={40} /></a>
+      <a class="hover:opacity-80 duration-300 opacity-60" href="https://www.linkedin.com/company/intuitem" target="_blank"><Image src={ linkedin } alt="linkedin_link" width={35} height={35} /></a>
+    </div>
+    <div class="flex flex-row items-center space-x-12">
       <div class="flex my-2">
         <LanguagePicker />
       </div>
     </div>
   </header>
 </Container>
+
+<script>
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    var class_scroll = ["border-b", "border-gray-300", "shadow-md"]
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 50) {
+      for (let i=0; i<class_scroll.length; i++) {
+        document.getElementById("header").classList.add(class_scroll[i]);
+      }
+    } else {
+      for (let i=0; i<class_scroll.length; i++) {
+        document.getElementById("header").classList.remove(class_scroll[i]);
+      }
+    }
+  }
+</script>

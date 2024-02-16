@@ -1,9 +1,7 @@
 ---
 import Container from "@components/container.astro";
 import Layout from "@layouts/Layout.astro";
-import Sectionhead from "@components/sectionhead.astro";
 import { Image } from "astro:assets";
-import MiraLogo from "assets/mira_logo.png";
 import CALogo from "@assets/ciso-assistant_logo.png";
 import ConsultancyLogo from "@assets/consultancy.png";
 import cyberSec from "@assets/cyber-security.png";
@@ -13,7 +11,7 @@ import crisis from "@assets/crisis.png";
 ---
 
 <Layout>
-  <Container class="px-10 overflow-x-clip">
+  <Container class="px-10 pt-1 overflow-y-clip">
     <!-- Header -->
     <div class="text-center my-10">
       <div class="text-3xl md:text-5xl font-highlight text-fuchsia-800">
@@ -24,53 +22,6 @@ import crisis from "@assets/crisis.png";
         intelligence to offer simple and innovative products
       </div>
     </div>
-
-    <section>
-      <div class="p-10 my-10 relative">
-        <div
-          class="w-64 h-64 bg-pink-200 rounded-full absolute top-0 left-0 filter blur-3xl opacity-700 mix-blend-multiply"
-        >
-        </div>
-        <div
-          class="w-64 h-64 bg-indigo-200 rounded-full absolute top-20 left-40 filter blur-3xl opacity-700 mix-blend-multiply"
-        >
-        </div>
-      </div>
-      <div class="flex">
-        <div class="w-1/3 flex items-center justify-center">
-          <div class="md:w-1/2">
-            <Image
-              src={MiraLogo}
-              alt="Mira Logo"
-              loading="eager"
-              format="avif"
-              sizes=" 50%"
-              width={500}
-            />
-          </div>
-        </div>
-        <div class="w-2/3 flex justify-center flex-col">
-          <div class="text-2xl">🚀</div>
-          <div class="text-3xl md:text-5xl mb-4 tracking-tighter font-title">Mira</div>
-          
-          <p class=" mb-2">
-            Whether you're starting your risk management program or looking to
-            improve the existing one, Mira is the solution you need to capture
-            and manage your risks, treatment plans, and associated controls.
-          </p>
-
-          <p>
-            Click below to learn more about how Mira can help you streamline your risk management approach and actually build a risk-driven cyber security program.
-          </p>
-          <a
-            href="/en/solutions/mira"
-            class="rounded p-2 bg-indigo-800 w-40 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0"
-            >Learn more</a
-          >
-        </div>
-      </div>
-    </section>
-
     <section>
       <div class="p-10 my-10 relative">
         <div
@@ -89,24 +40,31 @@ import crisis from "@assets/crisis.png";
             CISO Assistant
           </div>
           <p class="mb-2">
-            CISO assistant answers the growing pain of any CISO or cybersecurity
-            practitioner: where to start with so much data and threats and how
-            to reconcile security and compliance.
+            CISO Assistant is an <strong>open source</strong> solution to the growing concern of any CIO or
+            or cybersecurity practitioner: where to start when faced with so much
+            data and threats, and how to reconcile security and compliance.
           </p>
           <p>
-            The primary challenge is finding an efficient way to handle this
-            deluge of information without compromosing the sensitivity or
-            privacy of your data. The CISO Assistant streamlines this process by
-            organizing, interpreting, and prioritizing the data by leveraging
-            our offline and local AI engine. Through its innovative
-            capabilities, it allows for the swift identification of potential
-            threats, enabling a quick response to mitigate risk.
+            The main challenge is to find an efficient way of managing this
+            deluge of information without compromising the sensitivity or
+            confidentiality of your data. CISO Assistant simplifies this process
+            process by organizing, interpreting and prioritizing data. 
+            Thanks to its innovative capabilities, it enables rapid identification 
+            of potential threats, enabling a rapid response to mitigate 
+            mitigate risks.
           </p>
-          <a
-            href="#"
-            class="rounded p-2 bg-indigo-800 w-40 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0"
-            >Join the waitlist</a
-          >
+          <div class="flex space-x-2">
+            <a
+              href="/trial"
+              class="rounded p-2 bg-indigo-800 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0 whitespace-nowrap"
+              >Start free trial</a
+            >
+            <a
+              href="https://github.com/intuitem/ciso-assistant-community"
+              class="rounded p-2 bg-indigo-800 w-40 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0"
+              >View on GitHub</a
+            >
+          </div>
         </div>
         <div class="w-1/3 flex items-center justify-center">
           <div class="md:w-1/2">
@@ -175,7 +133,7 @@ import crisis from "@assets/crisis.png";
           <div class="md:w-1/3">
             <Image
               src={cyberSec}
-              alt="Mira Logo"
+              alt="CISO Assistant Logo"
               width={500}
               loading="eager"
               format="avif"
@@ -284,7 +242,7 @@ import crisis from "@assets/crisis.png";
           <div class="md:w-1/3">
             <Image
               src={audit}
-              alt="Mira Logo"
+              alt="CISO Assistant Logo"
               width={500}
               loading="eager"
               format="avif"

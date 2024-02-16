@@ -6,13 +6,16 @@ import Footer from "@components/footer.astro";
 import Hero from "@components/hero.astro";
 import Logos from "@components/logos.astro";
 import Layout from "@layouts/Layout.astro";
+import Frameworks from "@components/frameworks.astro";
 import "../../styles/base.css";
 ---
 
 <Layout title="intuitem: cloud, cyber security and everything in between">
-  <Container class=" overflow-x-clip">
+  <Container class="overflow-y-clip">
     <Hero />
-    <section class="p-10 relative">
+    <Cta />
+    <Logos />
+    <section class="p-10 relative mt-12">
       <div
         class="absolute w-40 h-48 rounded-full bg-rose-400 blob filter blur-2xl mix-blend-multiply opacity-50 left-40 top-20"
       >
@@ -52,10 +55,5 @@ import "../../styles/base.css";
         de croissance.
       </p>
     </section>
-
-    <Cta />
-    
-    <Logos />
-    
   </Container>
 </Layout>

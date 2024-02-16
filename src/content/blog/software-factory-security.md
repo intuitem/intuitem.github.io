@@ -51,7 +51,7 @@ This is a very common topic in Cybersecurity, and we will detail the proper patt
 
 Some tools to consider:
 - Keys management: Hashicorp Vault, KeePass
-- Leaks detection: Trufflehog, Git guardian, Github secret check
+- Leaks detection: Trufflehog, Git guardian, GitHub secret check
 
 ## Compute vulnerability management
 Once your app is ready for deployment, it will require some form of compute service to run it: bare metal, VM, container-based, serverless, etc. Compute security is the foundation of any application security, and is either managed directly by you or delegated to a provider, as part of a Shared Responsibility Model. The process is basically about monitoring and applying the security patches of your OS components, as well as the associated libraries and dependencies.

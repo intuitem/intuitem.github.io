@@ -1,9 +1,7 @@
 ---
 import Container from "@components/container.astro";
 import Layout from "@layouts/Layout.astro";
-import Sectionhead from "@components/sectionhead.astro";
 import { Image } from "astro:assets";
-import MiraLogo from "assets/mira_logo.png";
 import CALogo from "@assets/ciso-assistant_logo.png";
 import ConsultancyLogo from "@assets/consultancy.png";
 import cyberSec from "@assets/cyber-security.png";
@@ -13,7 +11,7 @@ import crisis from "@assets/crisis.png";
 ---
 
 <Layout>
-  <Container class="px-10 overflow-x-clip">
+  <Container class="px-10 pt-1 overflow-y-clip">
     <!-- Header -->
     <div class="text-center my-10">
       <div class="text-3xl md:text-5xl font-highlight text-fuchsia-800">
@@ -24,58 +22,6 @@ import crisis from "@assets/crisis.png";
         artificielle pour proposer des produits simples et innovants
       </div>
     </div>
-
-    <section>
-      <div class="p-10 my-10 relative">
-        <div
-          class="w-64 h-64 bg-pink-200 rounded-full absolute top-0 left-0 filter blur-3xl opacity-700 mix-blend-multiply"
-        >
-        </div>
-        <div
-          class="w-64 h-64 bg-indigo-200 rounded-full absolute top-20 left-40 filter blur-3xl opacity-700 mix-blend-multiply"
-        >
-        </div>
-      </div>
-      <group class="md:flex">
-
-        <div class="flex items-center justify-center md:w-1/3">
-          <div class="md:w-1/2">
-            <Image
-              src={MiraLogo}
-              alt="Mira Logo"
-              loading="eager"
-              format="avif"
-              sizes=" 50%"
-              width={500}
-            />
-          </div>
-        </div>
-
-        <div class="md:w-2/3 flex justify-center flex-col">
-          <div class="text-2xl">🚀</div>
-          <div class="text-3xl md:text-5xl mb-4 tracking-tighter font-title">Mira</div>
-
-          <p class="mb-2">
-            Que vous commenciez votre programme de gestion des risques ou
-            cherchiez à améliorer celui existant, Mira est la solution dont vous
-            avez besoin pour saisir et gérer vos risques, vos plans de
-            traitement et vos contrôles associés.
-          </p>
-          <p>
-            Cliquez en bas pour découvrir comment Mira peut vous aider à
-            rationaliser votre approche de la gestion des risques et à
-            construire réellement un programme de cybersécurité piloté par les
-            risques.
-          </p>
-          <a
-            href="/fr/solutions/mira"
-            class="rounded p-2 bg-indigo-800 w-40 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0"
-            >En savoir plus</a
-          >
-        </div>
-      </group>
-    </section>
-
     <section>
       <div class="p-10 my-10 relative">
         <div
@@ -94,7 +40,7 @@ import crisis from "@assets/crisis.png";
             CISO Assistant
           </div>
           <p class="mb-2">
-            CISO Assistant répond à la préoccupation grandissante de tout DSI ou
+            CISO Assistant est une solution <strong>open source</strong> répondant à la préoccupation grandissante de tout DSI ou
             praticien de la cybersécurité : par où commencer face à tant de
             données et de menaces et comment concilier sécurité et conformité.
           </p>
@@ -102,17 +48,23 @@ import crisis from "@assets/crisis.png";
             Le défi principal est de trouver un moyen efficace de gérer ce
             déluge d'informations sans compromettre la sensibilité ou la
             confidentialité de vos données. CISO Assistant simplifie ce
-            processus en organisant, interprétant et hiérarchisant les données
-            grâce à notre moteur d'IA hors ligne et local. Grâce à ses capacités
-            innovantes, il permet une identification rapide des menaces
-            potentielles, permettant une réponse rapide pour atténuer les
-            risques.
+            processus en organisant, interprétant et hiérarchisant les données. 
+            Grâce à ses capacités innovantes, il permet une identification 
+            rapide des menaces potentielles, permettant une réponse rapide pour 
+            atténuer les risques.
           </p>
-          <a
-            href="#"
-            class="rounded p-2 bg-indigo-800 w-40 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0"
-            >Liste d'attente</a
-          >
+          <div class="flex space-x-2">
+            <a
+              href="/trial"
+              class="rounded p-2 bg-indigo-800 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0 whitespace-nowrap"
+              >Démarrer l'essai gratuit</a
+            >
+            <a
+              href="https://github.com/intuitem/ciso-assistant-community"
+              class="rounded p-2 bg-indigo-800 w-40 text-white my-4 text-center font-medium hover:bg-indigo-600 z-0"
+              >Voir sur GitHub</a
+            >
+          </div>
         </div>
         <div class="w-1/3 flex items-center justify-center">
           <div class="md:w-1/3">

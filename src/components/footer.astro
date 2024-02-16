@@ -1,12 +1,48 @@
 ---
 import LanguagePicker from "./LanguagePicker.astro";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { Icon } from "astro-icon";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
-<footer class="my-20">
-  <p class="text-center text-sm text-slate-500">
-    Copyright  © 2018-{new Date().getFullYear()} intuitem.<br/>Tous droits réservés - All rights reserved.<br/>
-    SIREN  844 508 192  -  RCS  Versailles <br/>SARL au capital de 100 000 €<br/>
-    <a href="/pricing" class="text-slate-500 hover:text-slate-700">Pricing</a> | <a href="/blog/privacy-policy" class="text-slate-500 hover:text-slate-700">Privacy Policy</a> | <a href="/cgu" class="text-slate-500 hover:text-slate-700">Terms of Service</a> | <a href="/diversity" class="text-slate-500 hover:text-slate-700">Diversity</a>
-  </p>
-
-
+<footer class="flex flex-col mt-20 p-2 space-y-20 text-slate-500">
+  <div class="grid grid-cols-3 justify-items-center pt-4">
+    <div class="flex flex-col items-center text-sm space-y-2">
+      <p class="text-indigo-700 font-semibold">{t('footer.about')}</p>
+      <div class="flex items-center">
+        <Icon class="text-gray-400 w-4 h-4" name="uil:map-marker" />
+        <span>8 Rue des frères Caudron, 78140 Vélizy-villacoublay</span>
+      </div>
+      <div class="flex items-center">
+        <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a
+          href="mailto:contact@intuitem.com">contact@intuitem.com</a
+        >
+      </div>
+      <div class="flex items-center">
+        <Icon class="text-gray-400 w-4 h-4" name="uil:phone" /><a
+          href="tel:+33663068331">+33 (0)6 63 06 83 31</a
+        >
+      </div>
+    </div>
+    <div class="flex flex-col space-y-4 items-center">
+      <p class="text-center text-sm">
+        Copyright  © 2018-{new Date().getFullYear()} intuitem.<br/>Tous droits réservés - All rights reserved.<br/>
+        SIREN  844 508 192  -  RCS  Versailles <br/>SARL au capital de 100 000 €<br/>
+      </p>
+      <div class="flex items-center">
+        <span class="mr-2">
+          <img src="https://25949168.fs1.hubspotusercontent-eu1.net/hubfs/25949168/logo_empty.png" width="50px" height="50px">
+        </span>
+        <span class="font-bold text-slate-800 text-4xl">intuitem</span>
+      </div>
+    </div>
+    <div class="flex flex-col items-center text-sm space-y-2">
+      <p class="text-indigo-700 font-semibold">{t('footer.details')}</p>
+      <a href="/pricing" class="hover:text-slate-700">{t('footer.pricing')}</a>
+      <a href="/blog/privacy-policy" class="hover:text-slate-700">{t('footer.privacy')}</a>
+      <a href="/cgu" class="hover:text-slate-700">{t('footer.tos')}</a>
+      <a href="/diversity" class="hover:text-slate-700">Diversity</a>
+    </div>
+  </div>
 </footer>
