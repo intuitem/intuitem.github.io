@@ -35,6 +35,7 @@ jobs:
 
       # Not using npm? Change `npm run build` to `yarn build` or `pnpm run build`
       - name: Build Astro
+        working-directory: ./
         run: pnpm run build
 
       - name: Upload artifact
