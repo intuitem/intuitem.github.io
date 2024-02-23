@@ -1,40 +1,40 @@
 ---
-interface Props {
-  size?: "md" | "lg";
-  block?: boolean;
-  style?: "outline" | "primary" | "inverted";
-  class?: string;
-  [x: string]: any;
-}
+import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
+import type { CallToAction } from '~/types';
 
 const {
-  size = "md",
-  style = "primary",
-  block,
-  class: className,
+  variant = 'secondary',
+  target,
+  text = Astro.slots.render('default'),
+  icon = '',
+  class: className = '',
+  type,
   ...rest
-} = Astro.props;
+} = Astro.props as CallToAction;
 
-const sizes = {
-  md: "px-5 py-2.5",
-  lg: "px-6 py-3",
-};
-
-const styles = {
-  outline: "border-2 border-black hover:bg-black text-black hover:text-white",
-  primary:
-    "bg-black text-white hover:bg-slate-900  border-2 border-transparent",
+const variants = {
+  primary: 'btn-primary',
+  secondary: 'btn-secondary',
+  tertiary: 'btn btn-tertiary',
+  link: 'cursor-pointer hover:text-primary',
 };
 ---
 
-<button
-  {...rest}
-  class:list={[
-    "rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200",
-    block && "w-full",
-    sizes[size],
-    styles[style],
-    className,
-  ]}
-  ><slot />
-</button>
+{
+  type === 'button' || type === 'submit' || type === 'reset' ? (
+    <button type={type} class={twMerge(variants[variant] || '', className)} {...rest}>
+      <Fragment set:html={text} />
+      {icon && <Icon name={icon} class="w-5 h-5 ml-1 -mr-1.5 rtl:mr-1 rtl:-ml-1.5 inline-block" />}
+    </button>
+  ) : (
+    <a
+      class={twMerge(variants[variant] || '', className)}
+      {...(target ? { target: target, rel: 'noopener noreferrer' } : {})}
+      {...rest}
+    >
+      <Fragment set:html={text} />
+      {icon && <Icon name={icon} class="w-5 h-5 ml-1 -mr-1.5 rtl:mr-1 rtl:-ml-1.5 inline-block" />}
+    </a>
+  )
+}

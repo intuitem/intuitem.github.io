@@ -1,0 +1,55 @@
+---
+
+import Layout from '~/layouts/PageLayout.astro';
+// /blog/index.astro
+import { sanityClient } from 'sanity:client';
+import PortableText from "~/components/portabletext/PortableText.astro";
+//import { PortableText } from "astro-portabletext";
+import { Icon } from 'astro-icon/components';
+
+const features = await sanityClient.fetch(`*[_type == "feature"]`);
+
+const metadata = {
+  title: 'SaaS Landing Page',
+};
+
+
+---
+
+<Layout metadata={metadata}>
+
+
+
+    <div class="custom-list-style">
+    {
+      features.map((feature) => (
+        <>
+
+            <span>
+              <Icon name={feature.icon} /> {feature.title}
+            </span>
+
+          <PortableText value={feature.description} />
+        </>
+      ))
+    }
+    </div>
+
+</Layout>
+
+<style>
+    /* Scoped styles */
+    .custom-list-style ul, .custom-list-style ol {
+      @apply list-disc list-inside m-4 p-4 bg-gray-100;
+      /* Your specific Tailwind utility classes for lists */
+    }
+    
+    .custom-list-style ol {
+      @apply list-decimal;
+      /* Specific styles for ordered lists */
+    }
+    
+    /* Add more specific styles as needed */
+    </style>
+
+
