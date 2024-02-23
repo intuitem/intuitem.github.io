@@ -3,7 +3,7 @@ name: Deploy Astro to GitHub Pages
 on:
   # Trigger the workflow every time you push to the `main` branch
   push:
-    branches: [ main ]
+    branches: [main]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
@@ -17,27 +17,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out your repository using git
-      uses: actions/checkout@v2
+      - name: Check out your repository using git
+        uses: actions/checkout@v2
 
-    - name: Use Node.js 16
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'
-        cache: 'npm'
+      - name: Use Node.js 18
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+          cache: "npm"
 
-    # Not using npm? Change `npm ci` to `yarn install` or `pnpm i`
-    - name: Install dependencies
-      run: yarn install
+      # Not using npm? Change `npm ci` to `yarn install` or `pnpm i`
+      - name: Install dependencies
+        run: npm install
 
-    # Not using npm? Change `npm run build` to `yarn build` or `pnpm run build`
-    - name: Build Astro
-      run: yarn build
+      # Not using npm? Change `npm run build` to `yarn build` or `pnpm run build`
+      - name: Build Astro
+        run: npm run build
 
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
-      with:
-        path: ./dist
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./dist
 
   deploy:
     environment:
