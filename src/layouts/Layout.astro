@@ -1,81 +1,51 @@
 ---
-import { SEO } from "astro-seo";
-import Footer from "@components/footer.astro";
-import Navbar from "@components/navbar/navbar.astro";
-import { getLangFromUrl } from '../i18n/utils';
+import '~/assets/styles/tailwind.css';
 
-const lang = getLangFromUrl(Astro.url);
-import "@fontsource/inter/variable.css";
+import { I18N } from '~/utils/config';
+
+import CommonMeta from '~/components/common/CommonMeta.astro';
+import Favicons from '~/components/Favicons.astro';
+import CustomStyles from '~/components/CustomStyles.astro';
+import ApplyColorMode from '~/components/common/ApplyColorMode.astro';
+import Metadata from '~/components/common/Metadata.astro';
+import SiteVerification from '~/components/common/SiteVerification.astro';
+import Analytics from '~/components/common/Analytics.astro';
+import BasicScripts from '~/components/common/BasicScripts.astro';
+
+// Uncomment line below to activate View Transitions
+// import { ViewTransitions } from 'astro:transitions';
+
+import type { MetaData as MetaDataType } from '~/types';
 
 export interface Props {
-  title: string;
+  metadata?: MetaDataType;
 }
 
-// const { src } = await getImage({
-//   src: "../../assets/hero.png",
-//   width: 800,
-//   height: 742,
-//   format: "avif",
-// });
-// console.log(src);
-
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
-
-const resolvedImageWithDomain = new URL(
-  "/opengraph.jpg",
-  Astro.site
-).toString();
-
-const { title } = Astro.props;
-
-const makeTitle = title
-  ? title + " | " + "intuitem"
-  : "Intuitem | Cloud, Cybersecurity, and everything in between";
+const { metadata = {} } = Astro.props;
+const { language, textDirection } = I18N;
 ---
 
-<!DOCTYPE html>
-<html lang={lang}>
+<!doctype html>
+<html lang={language} dir={textDirection} class="2xl:text-[20px]">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <CommonMeta />
+    <Favicons />
+    <CustomStyles />
+    <ApplyColorMode />
+    <Metadata {...metadata} />
+    <SiteVerification />
+    <Analytics />
 
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Vidaloka&display=swap" rel="stylesheet">
-    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
-    <SEO
-      title={makeTitle}
-      description="Intuitem is a digital agency specializing in Cloud and Cyber Security. We build products and provide consulting services to simplify the overwhelming complexity of the modern digital world."
-      canonical={canonicalURL}
-      twitter={{
-        creator: "@asmimite",
-        card: "summary_large_image",
-      }}
-      openGraph={{
-        basic: {
-          url: canonicalURL,
-          type: "website",
-          title: `Intuitem | Cloud, Data and Cybersecurity`,
-          image: resolvedImageWithDomain,
-        },
-        image: {
-          alt: "Intuitem website",
-        },
-      }}
-    />
+    <!-- Uncomment line below to activate View Transitions -->
+    <!-- <ViewTransitions fallback="swap" /> -->
   </head>
-  <body>
-    <Navbar />
+
+  <body class="antialiased text-default bg-page tracking-tight">
     <slot />
-    <Footer />
+
+    <BasicScripts />
+
     <style is:global>
-      /* Improve Page speed */
-      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
       img {
         content-visibility: auto;
       }

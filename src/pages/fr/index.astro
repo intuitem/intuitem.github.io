@@ -1,61 +1,222 @@
 ---
-import Container from "@components/container.astro";
-import Cta from "@components/cta.astro";
-import Features from "@components/features.astro";
-import Footer from "@components/footer.astro";
-import Hero from "@components/hero.astro";
-import Logos from "@components/logos.astro";
-import Layout from "@layouts/Layout.astro";
-import "../../styles/base.css";
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+
+import Features from '~/components/widgets/Features.astro';
+
+import Steps from '~/components/widgets/Steps.astro';
+
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Brands from '~/components/widgets/Brands.astro';
+const metadata = {
+  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  ignoreTitleTemplate: true,
+};
+
+import PortableText from "~/components/portabletext/PortableText.astro";
+
+import { sanityClient } from "sanity:client";
+const heroSection = await sanityClient.fetch(`*[_type == "siteSection" && slug == "hero"]{
+    slug,
+    "body": body[_key == "en"][0].value,
+}`);
+
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+// defaultLocale is "es"
+const aboutURL=getRelativeLocaleUrl("en", "about");
 ---
 
-<Layout title="intuitem: cloud, cyber security and everything in between">
-  <Container class=" overflow-x-clip">
-    <Hero />
-    <section class="p-10 relative">
-      <div
-        class="absolute w-40 h-48 rounded-full bg-rose-400 blob filter blur-2xl mix-blend-multiply opacity-50 left-40 top-20"
-      >
-      </div>
-      <div class="font-highlight text-center text-rose-900 text-4xl mb-2 z-0">
-        Des solutions modernes et clé en main
-      </div>
-      <p class="lg:p-10 py-4 text-justify lg:text-left z-0">
-        Face à un paysage de menaces en constante évolution, la protection de
-        vos actifs numériques est d'une importance capitale. Nous proposons des
-        solutions complètes ou sur mesure qui rationalisent vos opérations de
-        cybersécurité, renforcent vos défenses et favorisent l'amélioration
-        continue. De l'évaluation des risques à la mise en œuvre de stratégies
-        de défense avancées, nos services sont conçus pour renforcer votre
-        posture de cybersécurité, garantissant ainsi la résilience et la
-        continuité de vos activités.
-      </p>
-    </section>
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
 
-    <section class="p-10 relative">
-      <div
-        class="absolute w-40 h-48 rounded-full bg-blue-300 blob filter blur-2xl mix-blend-multiply opacity-50 right-40 top-10 delay-4"
-      >
-      </div>
-      <div class="font-highlight text-center text-4xl text-blue-900 mb-2 z-0">
-        Des experts pour vous accompagner
-      </div>
-      <p class="lg:p-10 py-4 text-justify lg:text-left z-0">
-        Nos experts, forts de leur expérience et de leur savoir-faire, sont à
-        votre disposition pour vous guider à travers les complexités du paysage
-        technologique actuel. Ils prodiguent des conseils avisés, vous aident à
-        élaborer des stratégies efficaces et à construire des systèmes robustes.
-        De plus, nous ne nous contentons pas de créer des solutions : nous nous
-        engageons à renforcer les capacités de vos équipes par le biais de
-        coaching, afin de garantir une autonomie durable et une performance
-        optimale. Avec nous à vos côtés, transformez vos défis en opportunités
-        de croissance.
-      </p>
-    </section>
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started',
+        href: 'https://github.com/onwidget/astrowind',
+        target: '_blank',
+        icon: 'tabler:cloud',
+      },
+      { text: 'Community', href: '#features', icon: 'tabler:brand-github'},
+    ]}
+    image={{ src: '~/assets/images/hero.png', alt: 'AstroWind Hero Image' }}
+  >
+    <Fragment slot="title">
+      Nous 
+      <span class="text-accent dark:text-white highlight"> simplifions</span> le travail des équipes cyber sécurité
+    </Fragment>
 
-    <Cta />
-    
-    <Logos />
-    
-  </Container>
+    <Fragment slot="subtitle">
+      <div class="text-lg text-gray-500 dark:text-gray-400 pb-4">
+        <PortableText value={heroSection[0].body} />
+      </div>
+      
+    </Fragment>
+  </Hero>
+
+
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Features"
+    title="What you get with CISO Assistant"
+    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022."
+    items={[
+      {
+        title: 'Astro + Tailwind CSS Integration',
+        description:
+          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
+        icon: 'tabler:brand-tailwind',
+      },
+      {
+        title: 'Ready-to-use Components',
+        description:
+          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
+        icon: 'tabler:components',
+      },
+      {
+        title: 'Best Practices',
+        description:
+          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'Excellent Page Speed',
+        description:
+          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Search Engine Optimization (SEO)',
+        description:
+          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
+        icon: 'tabler:arrows-right-left',
+      },
+      {
+        title: 'Open to new ideas and contributions',
+        description:
+          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
+        icon: 'tabler:bulb',
+      },
+    ]}
+  />
+
+  
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Get your dream website up and running in no time with AstroWind."
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Download</span>',
+        description:
+          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
+        icon: 'tabler:package',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Add content</em>',
+        description:
+          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
+        icon: 'tabler:letter-case',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Customize styles</span>',
+        description:
+          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
+        icon: 'tabler:paint',
+      },
+      {
+        title: 'Ready!',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      alt: 'Steps image',
+    }}
+  />
+
+
+
+
+
+  
+
+  <!-- Brands Widget ****************** -->
+
+  <Brands
+    title="Partnerships & Collaborations"
+    subtitle="At Astrowind, we believe in the power of collaboration to drive innovation and create exceptional experiences."
+    icons={[]}
+    images={[
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png',
+        alt: 'Paypal',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2021/12/06/13/48/visa-6850402_1280.png',
+        alt: 'Visa',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2013/10/01/10/29/ebay-189064_1280.png',
+        alt: 'Ebay',
+      },
+
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png',
+        alt: 'Youtube',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png',
+        alt: 'Microsoft',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png',
+        alt: 'Node JS',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png',
+        alt: 'Google',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2021/12/06/13/45/meta-6850393_1280.png',
+        alt: 'Meta',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2013/01/29/22/53/yahoo-76684_1280.png',
+        alt: 'Yahoo',
+      },
+    ]}
+  />
+
+
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get template',
+        href: 'https://github.com/onwidget/astrowind',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
+      waste more time! :P
+    </Fragment>
+  </CallToAction>
 </Layout>
