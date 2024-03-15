@@ -10,4 +10,8 @@ export default defineConfig({
     ),
     sitemap(),
   ],
+  redirects: {
+    '/fr/solutions/mira/': '/fr/solutions/',
+    '/en/solutions/mira/': '/en/solutions/'
+  }
 });
