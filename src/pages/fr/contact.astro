@@ -1,166 +1,80 @@
 ---
-import { Icon } from "astro-icon";
-import Layout from "@layouts/Layout.astro";
-import Container from "@components/container.astro";
-import Sectionhead from "@components/sectionhead.astro";
-import Button from "@components/ui/button.astro";
-import Contactform from "@components/contactform.astro";
-const dwh = import.meta.env.PUBLIC_DISCORD_WH;
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'Contact',
+};
 ---
 
-<Layout title="Contact">
-  <Container class="pt-1">
-    <Sectionhead>
-      <Fragment slot="title">Contact</Fragment>
-      <Fragment slot="desc">Réponse garantie !</Fragment>
-    </Sectionhead>
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
 
-    <main class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
-      <div class="p-4 lg:p-10">
-        <h2 class="font-medium text-2xl text-gray-800">Contact Us</h2>
-        <p class="text-lg leading-relaxed text-slate-500 mt-3">
-          Intéressé.e.s par nos services ? Vous avez une question ? N'hésitez pas à nous contacter, nous vous répondrons dans les plus brefs délais.
-        </p>
-        <div class="mt-5">
-          <div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:map-marker" />
-            <span>8 Rue des frères Caudron, 78140 Vélizy-villacoublay</span>
-          </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a
-              href="mailto:contact@intuitem.com">contact@intuitem.com</a
-            >
-          </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:phone" /><a
-              href="tel:+33663068331">+33 (0)6 63 06 83 31</a
-            >
-          </div>
-        </div>
-        <div id="success-message" class="hidden">
-          <p class="text-green-500 text-lg font-semibold">Merci pour votre message et à très bientôt !</p>
-        </div>
-        <div id="error-message" class="hidden">
-          <p class="text-red-500 text-lg font-semibold">Erreur lors de l'envoi du message. Merci de ressayer ultérieurement.</p>
-        </div>
-      </div>
+  <HeroText tagline="Contact" title="Let's Connect!" />
 
-      <div class="p-4 lg:p-10">
+  <ContactUs
+    title="We are here to help"
+    subtitle="For quicker answers, check the FAQs or Discord. If you you are looking for a quote or have a question, please fill out the form below."
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Name*',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email*',
+      },
+    ]}
+    textarea={{
+      label: 'Message*',
+    }}
+    disclaimer={{
+      label:
+        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+    }}
+    description="Our support team typically responds within 24 business hours."
+  />
 
-        <form method="POST" action="/action" enctype="multipart/form-data">
-          <div class="mb-6">
-            <label
-              for="name"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Nom complet*</label
-            >
-            <input
-              id="name"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Prénom et nom"
-              name="name"
-              required
-            />
-          </div>
-          <div class="mb-6">
-            <label
-              for="email"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Email*</label
-            >
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="nom@organisation.com"
-              required
-            />
-          </div>
-          <div class="mb-6">
-            <label
-              for="company"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Organisation</label
-            >
-            <input
-              id="company"
-              name="company"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Socitété / Institution"
-            />
-          </div>
-          <div class="mb-6">
-            <label
-              for="phone"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Téléphone</label
-            >
-            <input
-              id="phone"
-              name="phone"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="+33"
-            />
-          </div>
-          <div class="mb-6">
-            <label
-              for="message"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Message*</label
-            >
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              maxlength="1000"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Votre message"
-              required></textarea>
-          </div>
-          <div class="mb-6">
-            <Button type="submit" class="w-full">Envoyer</Button>
-          </div>
-        </form>
+  <!-- Features2 Widget ************** -->
 
-      </div>
-      
-
-
-
-      <script define:vars={{ dwh }}>
-        const form = document.querySelector("form");
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const formData = new FormData(form);
-          const jsonObject = Array.from(formData.entries()).reduce(
-            (obj, [key, value]) => {
-              obj[key] = value;
-              return obj;
-            },
-            {}
-          );
-          const response = await fetch(dwh, {
-            method: "POST",
-            body: JSON.stringify({
-              content: JSON.stringify(jsonObject),
-              username: "intuitem-contact-form",
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-          const result = await response; // await just the response
-
-          console.log(result);
-          if (response.status === 200 || response.status === 204) {
-            const successMessage = document.getElementById("success-message");
-            successMessage.classList.remove("hidden");
-          } else {
-            const errorMessage = document.getElementById("error-message");
-            errorMessage.classList.remove("hidden");
-          }
-
-        });
-      </script>
-    </main>
-  </Container>
+  <!--
+  <Features2
+    title="We are here to help!"
+    items={[
+      {
+        title: 'General support',
+        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
+      },
+      {
+        title: 'Contact sales',
+        description:
+          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
+      },
+      {
+        title: 'Technical support',
+        description:
+          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
+      },
+      {
+        title: 'Phone',
+        description: '+1 (234) 567-890',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Email',
+        description: 'contact@support.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Location',
+        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+   -->
 </Layout>

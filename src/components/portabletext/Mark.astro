@@ -1,0 +1,14 @@
+---
+import type { Props as $, Mark } from "astro-portabletext/types";
+import { Mark as DefaultMark } from "astro-portabletext/components";
+
+
+export type Props = $<Mark>;
+
+const props = Astro.props;
+
+
+const Cmp = DefaultMark;
+---
+
+<Cmp {...props}><slot /></Cmp>

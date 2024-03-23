@@ -1,40 +1,68 @@
-// 1. Import utilities from `astro:content`
 import { z, defineCollection } from 'astro:content';
 
-// 2. Define your collection(s)
-const blogCollection = defineCollection({
+const metadataDefinition = () =>
+  z
+    .object({
+      title: z.string().optional(),
+      ignoreTitleTemplate: z.boolean().optional(),
+
+      canonical: z.string().url().optional(),
+
+      robots: z
+        .object({
+          index: z.boolean().optional(),
+          follow: z.boolean().optional(),
+        })
+        .optional(),
+
+      description: z.string().optional(),
+
+      openGraph: z
+        .object({
+          url: z.string().optional(),
+          siteName: z.string().optional(),
+          images: z
+            .array(
+              z.object({
+                url: z.string(),
+                width: z.number().optional(),
+                height: z.number().optional(),
+              })
+            )
+            .optional(),
+          locale: z.string().optional(),
+          type: z.string().optional(),
+        })
+        .optional(),
+
+      twitter: z
+        .object({
+          handle: z.string().optional(),
+          site: z.string().optional(),
+          cardType: z.string().optional(),
+        })
+        .optional(),
+    })
+    .optional();
+
+const postCollection = defineCollection({
   schema: z.object({
-    draft: z.boolean(),
+    publishDate: z.date().optional(),
+    updateDate: z.date().optional(),
+    draft: z.boolean().optional(),
+
     title: z.string(),
-    snippet: z.string(),
-    image: z.object({
-      src: z.string(),
-      alt: z.string(),
-    }),
-    publishDate: z.string().transform(str => new Date(str)),
-    author: z.string().default('Abder'),
-    category: z.string(),
-    tags: z.array(z.string()),
+    excerpt: z.string().optional(),
+    image: z.string().optional(),
+
+    category: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    author: z.string().optional(),
+
+    metadata: metadataDefinition(),
   }),
 });
 
-const teamCollection = defineCollection({
-  schema: z.object({
-    draft: z.boolean(),
-    name: z.string(),
-    title: z.string(),
-    linkedin: z.string(),
-    avatar: z.object({
-      src: z.string(),
-      alt: z.string(),
-    }),
-    publishDate: z.string().transform(str => new Date(str)),
-  }),
-});
-
-// 3. Export a single `collections` object to register your collection(s)
-//    This key should match your collection directory name in "src/content"
 export const collections = {
-  'blog': blogCollection,
-  'team': teamCollection,
+  post: postCollection,
 };

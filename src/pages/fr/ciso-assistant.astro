@@ -1,0 +1,216 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+
+import { headerData } from '~/navigation';
+import FAQs from '~/components/widgets/FAQs.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+const metadata = {
+  title: 'CISO Assistant - cyber arms for your security program',
+  description:
+    'CISO Assistant is a pragmatic approach to handle the complexity of GRC (Governance, Risk and Compliance) and make the tools work for you instead of the other way around.',
+};
+
+import { sanityClient } from "sanity:client";
+
+const features = await sanityClient.fetch(`*[_type == "feature"]`);
+
+const useCases = await sanityClient.fetch(`*[_type == "useCase"]{
+  slug,
+  "title":title[_key == "fr"][0].value,
+  "subtitle":subTitle[_key == "fr"][0].value,
+  "description":description[_key == "fr"][0].value,
+  "benefits":benefits[_key == "fr"][0].value,
+  "image":image.asset->url
+} | order(slug asc)`);
+
+const faqEntries = await sanityClient.fetch(`*[_type == "faqEntry"]{
+  slug,
+  "title":question[_key == "fr"][0].value,
+  "description":answer[_key == "fr"][0].value,
+  "icon":icon
+} | order(slug asc)
+`);
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      isSticky
+      showToggleTheme
+    />
+  </Fragment>
+
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="CISO Assistant"
+    actions={[
+      { variant: 'primary', text: 'Get Started', href: '/trial' },
+      { text: 'Use cases', href: '#use-cases' },
+    ]}
+    image={{
+      src: '~/assets/images/hero.png',
+      alt: 'CISO Assistant Octopus',
+    }}
+  >
+    <Fragment slot="title">
+      La GRC peut devenir compliquée :<br /><span class="text-accent dark:text-white highlight"
+        >CISO Assistant</span
+      > vous simplifie la vie<br />
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="">
+        Cyber security program management can be challenging regardless of the size of your company.  <span class="font-semibold">CISO Assistant</span> one-stop-shop approach 
+       provides a pragmatic way to handle the complexity of GRC (Governance, Risk and Compliance) and make the tools work for you instead of the other way around.
+    </Fragment>
+  </Hero2>
+
+
+  <!-- Content Widget **************** -->
+
+  <Content
+  title="Use cases"
+  id="use-cases"
+  subtitle="Discover how CISO Assistant can help for various use cases, providing a pragmatic approach to drive your cyber security program."
+  items={[]}
+>
+
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Content>
+
+  {useCases.map((useCase, index) => (
+    <Content
+    isAfterContent={true}
+    isReversed={index % 2 === 0}
+      items={[
+        {
+          title: 'Description',
+          description: useCase.description,
+        },
+        {
+          title: 'Benefits',
+          description: useCase.benefits,
+        },
+      ]}
+      image={{
+        src: useCase.image,
+        alt: useCase.title,
+      }}
+    >
+      <Fragment slot="content">
+        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+          {useCase.title} <br /><span class="text-2xl">{useCase.subtitle}</span>
+      </h3>
+      </Fragment>
+
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      </Fragment>
+    </Content>
+  ))}
+
+
+
+
+
+
+  <!-- Pricing Widget ******************* -->
+
+  <Pricing
+    title="Flexible pricing plans"
+    prices={[
+      {
+        title: 'free',
+        subtitle: 'Community edition/support and standard features. Run on your own infrastructure',
+        price: '0',
+        period: 'forever',
+        callToAction: {
+          target: '_blank',
+          text: 'Get Started for Free',
+          href: 'https://github.com/intuitem/ciso-assistant-community',
+        },
+      },
+      {
+        title: 'pro',
+        subtitle: 'Priority support, cloud hosting or on-premises, integration assistance and advanced features',
+        price: 29,
+        period: '/ editor / Month',
+        callToAction: {
+          target: '_blank',
+          text: 'Upgrade to Pro',
+          href: '/contact',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'popular',
+      },
+      {
+        title: 'Enterprise',
+        subtitle: 'Tailored solutions for large-scale projects including advanced support and features.',
+        price: "-",
+        period: '/ Month',
+        isCustom: true,
+        callToAction: {
+          target: '_blank',
+          text: 'Unlock Enterprise Features',
+          href: '/contact',
+        },
+      },
+    ]}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    id="faq"
+    items={faqEntries}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="Reach out to us"
+    subtitle="Have questions or need assistance shaping your needs and projects? Feel free to contact the team using the form below. We're here to help!"
+    callToAction={{
+      text: 'Contact us',
+      href: '/',
+    }}
+    items={[
+      {
+        title: 'Email',
+        description: 'contact@intuitem.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Call',
+        description: '+33 6 63 06 83 31',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Chat',
+        description: 'intuitem - community',
+        icon: 'tabler:brand-discord',
+      },
+    ]}
+  />
+
+  <!-- BlogLatestPost Widget **************** -->
+
+
+</Layout>

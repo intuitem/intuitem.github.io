@@ -1,156 +1,48 @@
 ---
-import { Icon } from "astro-icon";
-import Layout from "@layouts/Layout.astro";
-import Container from "@components/container.astro";
-import Sectionhead from "@components/sectionhead.astro";
-import Button from "@components/ui/button.astro";
-import Contactform from "@components/contactform.astro";
-const dwh = import.meta.env.PUBLIC_DISCORD_WH;
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'Trial',
+};
 ---
 
-<Layout title="CISO Assistant : Essai gratuit">
-  <Container class="pt-1">
-    <Sectionhead>
-      <Fragment slot="title">CISO Assistant : Essai gratuit</Fragment>
-      <Fragment slot="desc">Essai gratuit de 30 jours sans engagement. Carte bancaire non requise.</Fragment>
-    </Sectionhead>
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
 
-    <main class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
-      <div class="p-4 lg:p-10">
-        <h2 class="font-medium text-2xl text-gray-800">CISO Assistant Cloud - Essai gratuit</h2>
-        <p class="text-lg leading-relaxed text-slate-500 mt-3">
-          Découvrez notre plateforme de gestion des risques de bout en bout, sans engagement et sans installation.
-        </p>
-        <p class="text-lg leading-relaxed text-slate-500 mt-3">
-          Des besoins plus spécfiques d'infrastructure ? <a href="/fr/community" class="text-indigo-600">L'édition communautaire</a> est également disponible sur GitHub, ou vous pouvez <a href="/fr/contact" class=" text-indigo-600">nous contacter</a> pour en discuter.
-        </p>
-        
-        <div id="success-message" class="my-2 hidden">
-          <p class="text-green-500 text-lg font-semibold">L'instance privée sera créée dans un délai maximum de 48h ! Si vous ne recevez pas de mail de confirmation, vérifiez vos spams.</p>
-        </div>
-        <div id="error-message" class="my-2 hidden">
-          <p class="text-red-500 text-lg font-semibold">Erreur lors du traitement du formulaire. Merci de ressayer ultérieurement.</p>
-        </div>
-      </div>
+  <HeroText tagline="Essai" title="Commencer maintenant !" />
 
-      <div class="p-4 lg:p-10">
+  <ContactUs
+    title="Instance cloud gratuite"
+    subtitle="Démarrer votre essai gratuit dès maintenant. Vos données sont sécurisées sur un environnement isolé. Vous pouvez migrer votre instance vers un environnement de production à tout moment."
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Nom complet*',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email*',
+      },
+      {
+        type: 'text',
+        name: 'organization',
+        label: 'Organisation*',
+      },
+    ]}
+    textarea={{
+      label: 'Questions ou commentaires',
+    }}
+    disclaimer={{
+      label:
+        'By submitting this contact form, you acknowledge and agree to our privacy policy and terms & conditions. You also consent to be contacted by us via phone and email. You can unsubscribe at any time.',
+    }}
+    description="The trial instance will be available shortly after. No credit card required."
+    button='Démarrez maintenant'
+  />
 
-        <form method="POST" action="/action" enctype="multipart/form-data">
-          <div class="mb-6">
-            <label
-              for="name"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Nom complet*</label
-            >
-            <input
-              id="name"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Prénom et nom"
-              name="name"
-              required
-            />
-          </div>
-          <div class="mb-6">
-            <label
-              for="email"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Email*</label
-            >
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="pour le mail de confirmation"
-              required
-            />
-          </div>
-          <div class="mb-6">
-            <label
-              for="company"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Organisation*</label
-            >
-            <input
-              id="company"
-              name="company"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="utilisé pour le nom de l'instance"
-              required
-            />
-          </div>
-          <div class="mb-6">
-            <label
-              for="phone"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Téléphone</label
-            >
-            <input
-              id="phone"
-              name="phone"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="+33"
-            />
-          </div>
-          <div>
-            <label
-              class="block my-2 py-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-              <input type="checkbox" name="marketing" id="marketing" class="mr-2" />
-              
-              <span>J'accepte d'être contacté par l'équipe pour étudier mon besoin et cas d'usage</span></label
-            >
-              
-            </label>
-          </div>
-
-
-
-          <div class="mb-6">
-            <Button type="submit" class="w-full">Envoyer</Button>
-          </div>
-        </form>
-
-      </div>
-      
-
-
-
-      <script define:vars={{ dwh }}>
-        const form = document.querySelector("form");
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const formData = new FormData(form);
-          const jsonObject = Array.from(formData.entries()).reduce(
-            (obj, [key, value]) => {
-              obj[key] = value;
-              return obj;
-            },
-            {}
-          );
-          const response = await fetch(dwh, {
-            method: "POST",
-            body: JSON.stringify({
-              content: JSON.stringify(jsonObject),
-              username: "intuitem-trial-form",
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-          const result = await response; // await just the response
-
-          console.log(result);
-          if (response.status === 200 || response.status === 204) {
-            const successMessage = document.getElementById("success-message");
-            successMessage.classList.remove("hidden");
-          } else {
-            const errorMessage = document.getElementById("error-message");
-            errorMessage.classList.remove("hidden");
-          }
-
-        });
-      </script>
-    </main>
-  </Container>
 </Layout>
