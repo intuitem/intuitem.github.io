@@ -1,0 +1,15 @@
+---
+import type { Props as $, TypedObject } from "astro-portabletext/types";
+import { usePortableText } from "astro-portabletext/utils";
+
+
+export type Props = $<TypedObject>;
+
+const props = Astro.props;
+
+const { getDefaultComponent } = usePortableText(props.node);
+
+const Cmp = getDefaultComponent();
+---
+
+<Cmp {...props} />

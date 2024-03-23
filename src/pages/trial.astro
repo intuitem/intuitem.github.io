@@ -1,7 +1,48 @@
 ---
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const metadata = {
+  title: 'Trial',
+};
 ---
-<meta http-equiv="refresh" content=`0;url=/${lang}/trial` />
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText tagline="Trial" title="Start now!" />
+
+  <ContactUs
+    title="Free Trial instance"
+    subtitle="Get started today with a free cloud trial instance of CISO Assistant. Your data is safe and secure in an isolated environment. Data can be migrated to a production instance at any time."
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Name*',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email*',
+      },
+      {
+        type: 'text',
+        name: 'organization',
+        label: 'Organization*',
+      },
+    ]}
+    textarea={{
+      label: 'Specific questions or comments',
+    }}
+    disclaimer={{
+      label:
+        'By submitting this contact form, you acknowledge and agree to our privacy policy and terms & conditions. You also consent to be contacted by us via phone and email. You can unsubscribe at any time.',
+    }}
+    description="The trial instance will be available shortly after. No credit card required."
+    button='Start now'
+  />
+
+</Layout>

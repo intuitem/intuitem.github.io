@@ -1,0 +1,29 @@
+---
+import type { Props as $, List as List } from 'astro-portabletext/types';
+import { List as DefaultList } from 'astro-portabletext/components';
+
+export type Props = $<List>;
+
+const props = Astro.props;
+
+const Cmp = DefaultList;
+---
+
+<div class="custom-list-style">
+  <Cmp {...props}><slot /></Cmp>
+</div>
+<style>
+  /* Scoped styles */
+  .custom-list-style ul,
+  .custom-list-style ol {
+    @apply list-disc list-inside m-4 p-4 bg-gray-100;
+    /* Your specific Tailwind utility classes for lists */
+  }
+
+  .custom-list-style ol {
+    @apply list-decimal;
+    /* Specific styles for ordered lists */
+  }
+
+  /* Add more specific styles as needed */
+</style>

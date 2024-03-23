@@ -1,3 +1,177 @@
 ---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Brands from '~/components/widgets/Brands.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+import { sanityClient } from 'sanity:client';
+import PortableText from '~/components/portabletext/PortableText.astro';
+
+const metadata = {
+  title: 'intuitem - CISO Assistant - Open source GRC',
+  description:
+    'intuitem provides products and services on cyber security and infrastructure management. CISO Assistant is a one-stop-shop open source solution that helps security teams to manage their GRC activities. Available in community, pro and enterprise editions.',
+  ignoreTitleTemplate: true,
+};
+
+const heroSection = await sanityClient.fetch(`*[_type == "siteSection" && slug == "hero"]{
+    slug,
+    "body": body[_key == "en"][0].value,
+}`);
+
+const featuresContent = await sanityClient.fetch(`*[_type == "feature"]{
+  "title": title[_key == "en"][0].value,
+  "description": description[_key == "en"][0].value,
+  icon,
+  slug,
+} | order(slug asc)`);
+
+const referenceBrands = await sanityClient.fetch(`*[_type == "referenceBrand"]{
+  name,
+  "imageUrl":logo.asset->url
+}`);
+
+function adjustImageUrl(ref) {
+  return `${ref}`;
+}
+
+const transformedBrands = referenceBrands.map(brand => ({
+  src: adjustImageUrl(brand.imageUrl),
+  alt: brand.name
+}));
 ---
-<meta http-equiv="refresh" content="0;url=/fr/" />
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started',
+        href: '/trial',
+        icon: 'tabler:cloud',
+      },
+      { text: 'Learn more', href: '#features', icon: 'tabler:mood-plus' },
+    ]}
+    image={{ src: '~/assets/images/hero.png', alt: 'CISO Assistant octopus' }}
+  >
+    <Fragment slot="title">
+      We
+      <span class="text-accent dark:text-white highlight"> simplify</span> the work of cyber security teams
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <div class="text-lg text-gray-500 dark:text-gray-400 pb-4">
+        <PortableText value={heroSection[0].body} />
+      </div>
+    </Fragment>
+  </Hero>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+  id="features"
+    tagline="Features"
+    title="What you get with CISO Assistant"
+    subtitle="Learn more about the features that make CISO Assistant the best choice for your security team. We are constantly working to improve our product, so stay tuned for more features!"
+    items={featuresContent}
+    >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+    
+
+  </Features>
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Let CISO Assistant work for you in no time in a few simple steps"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Choose your deployment</span>',
+        description:
+          "Kickstart with the free instance or GitHub! The choice is yours. We're here to make your journey as smooth as possible. So, take your pick and let's get started!",
+        icon: 'tabler:package',
+      },
+      {
+        title: 'Step 2.a: <span class="font-medium">Experiment and Add your content</span>',
+        description:
+          "Follow the documentation to get started with CISO assistant. You can add your own content and experiment with the features. We're here to help you every step of the way on our Discord server.",
+        icon: 'tabler:letter-case',
+      },
+      {
+        title: 'Step 2.b: <span class="font-medium">Discuss specific features/needs</span>',
+        description:
+          'If you are looking for a specific feature or you have a particular need, we are here to help you. Any customization will be covered by the enterprise plan support and can be tailored to your case.',
+        icon: 'tabler:paint',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Upgrade your plan</span>',
+        description:
+          'If you are happy with the community edition then we are happy for you. We encourage you to upgrade to Pro or Enterprise to get the most out of CISO Assistant and of guaranteed data migration.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Ready!',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      alt: 'Steps image',
+    }}
+
+  />
+
+  <!-- Brands Widget ****************** -->
+
+  <Brands
+    title="References & Collaborations"
+    subtitle="Some of the organizations that we had the pleasure to work with:"
+    id="references"
+    icons={[]}
+    images={transformedBrands}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Free instance',
+        href: '/trial',
+        icon: 'tabler:cloud',
+      },
+      {
+        variant: 'secondary',
+        text: 'Walkthrough',
+        href: '/ciso-assistant',
+        icon: 'tabler:mood-plus',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Ready to get started? </Fragment>
+
+    <Fragment slot="subtitle">
+      Nothing better than a free instance to test it out and find out how CISO Assistant can help you. Don't waste more
+      time on low values operations and start focusing on what really matters.
+    </Fragment>
+
+  </CallToAction>
+
+  <BlogLatestPosts
+  id="blog"
+  title="Stay informed with intuitem's blog"
+  information={`Explore our collection of articles, guides, and tutorials on development, cyber security, AI, program management and so much more.`}
+>
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</BlogLatestPosts>
+</Layout>
